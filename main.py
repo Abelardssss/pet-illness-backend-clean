@@ -9,7 +9,7 @@ FACT_BASE_PATH = "data/fact_base.json"
 KNOWLEDGE_BASE_PATH = "data/updated_knowledge_base_v2_fixed.json"
 ILLNESS_INFO_PATH = "data/expanded_illness_info_complete.json"
 FOLLOWUP_QUESTIONS_PATH = "data/updated_follow_up_questions_tuned.json"
-DATASET_PATH = "latest_augmented.csv"
+DATASET_PATH = "data/latest_augmented.csv"
 BREED_CATEGORY_MAP_PATH = "data/breed_category_mapping.json"
 
 
@@ -26,9 +26,9 @@ symptom_followups = load_json(FOLLOWUP_QUESTIONS_PATH)
 breed_category_mapping = load_json(BREED_CATEGORY_MAP_PATH)
 
 # 📌 Load Machine Learning Models
-boosting_model = joblib.load("gradient_model.pkl")
-adaboost_model = joblib.load("adaboost_model.pkl")
-selected_features = joblib.load("adaboost_selected_features.pkl")
+boosting_model = joblib.load("model/gradient_model.pkl")
+adaboost_model = joblib.load("model/adaboost_model.pkl")
+selected_features = joblib.load("model/adaboost_selected_features.pkl")
 
 
 # Load Knowledge Base (Rules)
