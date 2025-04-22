@@ -37,7 +37,8 @@
             ],
             "confidence_fc": 0.38,
             "confidence_gb": 1.0,
-            "confidence_ab": 1.0
+            "confidence_ab": 1.0,
+            "confidence_softmax": 0.5503
         },
         {
             "illness": "Canine Enteric Coronavirus",
@@ -47,7 +48,8 @@
             ],
             "confidence_fc": 0.36,
             "confidence_gb": 0.01,
-            "confidence_ab": 0.11
+            "confidence_ab": 0.11,
+            "confidence_softmax": 0.226
         },
         {
             "illness": "Canine Minute Virus",
@@ -58,7 +60,8 @@
             ],
             "confidence_fc": 0.26,
             "confidence_gb": 0.03,
-            "confidence_ab": 0.1
+            "confidence_ab": 0.1,
+            "confidence_softmax": 0.2237
         },
         {
             "illness": "Addison's Disease",

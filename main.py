@@ -801,6 +801,17 @@ def display_symptom_matching(diagnosis, user_answers):
     if not (direct_matches or subtype_matches or followup_matches):
         print("   ❌ No symptoms matched.")
 
+def apply_softmax_to_confidences(diagnoses):
+    """Applies softmax to the final AdaBoost confidence scores of the diagnoses list."""
+    scores = np.array([d["confidence_ab"] for d in diagnoses])
+    exp_scores = np.exp(scores)
+    softmax_probs = exp_scores / np.sum(exp_scores)
+
+    for i, d in enumerate(diagnoses):
+        d["confidence_softmax"] = round(float(softmax_probs[i]), 4)
+
+    return diagnoses
+
 
 # ✅ Structured Comparison Output for Terminal (Place at end of `run_diagnosis()`)
 def run_diagnosis():
@@ -823,7 +834,11 @@ def run_diagnosis():
     #         else 0.0
     #     )
     final_diagnoses.sort(key=lambda x: -x["confidence_ab"])
-    top_results = final_diagnoses[:5]
+    top_results = final_diagnoses[:3]
+
+    # ✅ Apply Softmax to the top results
+    top_results = apply_softmax_to_confidences(top_results)
+
 
     compare_illnesses(top_results, fact_base)
     fact_base["possible_diagnosis"] = final_diagnoses
@@ -857,7 +872,7 @@ def run_diagnosis():
             print(
                 f"     FN: {performance['confusion_matrix']['FN']}, TN: {performance['confusion_matrix']['TN']}"
             )
-        print(f"🔹 {diagnosis['illness']} (Confidence: {diagnosis['confidence_ab']})")
+        print(f"🔹 {diagnosis['illness']} (Probability: {round(diagnosis['confidence_softmax'] * 100, 2)}%)")
         display_symptom_matching(diagnosis, fact_base["user_answers"])
 
         print(f"\n📌 **ML Confidence Score Adjustments**")
