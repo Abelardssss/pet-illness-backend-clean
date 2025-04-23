@@ -825,20 +825,18 @@ def run_diagnosis():
 
     refined_diagnoses = gradient_boosting_ranking(possible_diagnoses, fact_base)
     final_diagnoses = adaboost_ranking(refined_diagnoses, fact_base)
-    # # 🔢 Normalize AdaBoost scores into confidence percentages
-    # max_ab_score = max(d["confidence_ab"] for d in final_diagnoses)
-    # for d in final_diagnoses:
-    #     d["confidence_pct"] = (
-    #         round((d["confidence_ab"] / max_ab_score) * 100, 2)
-    #         if max_ab_score > 0
-    #         else 0.0
-    #     )
-    final_diagnoses.sort(key=lambda x: -x["confidence_ab"])
-    top_results = final_diagnoses[:3]
+    # Step 1: Apply softmax to all results
+    final_diagnoses = apply_softmax_to_confidences(final_diagnoses)
 
-    # ✅ Apply Softmax to the top results
-    top_results = apply_softmax_to_confidences(top_results)
+    # Step 2: Sort all illnesses by descending probability
+    final_diagnoses.sort(key=lambda x: -x["confidence_softmax"])
 
+    # Step 3: Apply visual filtering threshold (e.g., 0.02 = 2%)
+    PROB_THRESHOLD = 0.04
+    filtered = [d for d in final_diagnoses if d["confidence_softmax"] >= PROB_THRESHOLD]
+
+    # Step 4: Show top N results only (e.g., top 3 that meet the threshold)
+    top_results = filtered[:3]
 
     compare_illnesses(top_results, fact_base)
     fact_base["possible_diagnosis"] = final_diagnoses
@@ -997,6 +995,10 @@ def run_diagnosis():
                 f"{top_illness_data['illness']} is classified as **{severity.upper()}**."
             )
             print(f"👉 {treatment}")
+
+    print("\n🧪 All Illness Probabilities (SoftMax normalized):")
+    for d in final_diagnoses:
+        print(f"🔹 {d['illness']}: {round(d['confidence_softmax'] * 100, 2)}%")
 
     print("\n✅ Diagnosis with full illness details included!")
 
