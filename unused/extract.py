@@ -1,7 +1,7 @@
 import json
 
 # File paths
-input_file = "new list of illnesses.txt"
+input_file = "alphabetized_cat_illnesses_fixed.txt"
 output_file = "unique_symptoms.json"
 
 unique_symptoms = set()

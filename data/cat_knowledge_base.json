@@ -1,60 +1,5 @@
 {
     "rules": [
-        {
-            "illness": "Addison’s Disease in Cats",
-            "type": "Endocrine",
-            "confidence": 0.85,
-            "age_range": "Adult",
-            "breed": "Any",
-            "size": "Any",
-            "symptoms": [
-              {
-                "name": "Lethargy",
-                "stage": "Early",
-                "weight": 0.5,
-                "severity": "Medium",
-                "priority": 3,
-                "duration_range": "3-5 days",
-                "subtype": ""
-              },
-              {
-                "name": "Vomiting",
-                "stage": "Any",
-                "weight": 0.4,
-                "severity": "Medium",
-                "priority": 2,
-                "duration_range": "1-2 days",
-                "subtype": "Yellow, Foamy"
-              },
-              {
-                "name": "Diarrhea",
-                "stage": "Any",
-                "weight": 0.4,
-                "severity": "Medium",
-                "priority": 2,
-                "duration_range": "1-2 days",
-                "subtype": "Watery"
-              },
-              {
-                "name": "Weight loss",
-                "stage": "Progressive",
-                "weight": 0.3,
-                "severity": "Medium",
-                "priority": 2,
-                "duration_range": "6-10 days",
-                "subtype": ""
-              },
-              {
-                "name": "Shaking",
-                "stage": "Any",
-                "weight": 0.3,
-                "severity": "Low",
-                "priority": 2,
-                "duration_range": "1-2 days",
-                "subtype": "Tremors"
-              }
-            ]
-          },
           {
             "illness": "Ameba Infection in Cats",
             "type": "Parasitic (Protozoal)",
@@ -308,7 +253,7 @@
                 "severity": "Medium",
                 "priority": 3,
                 "duration_range": "3-5 days",
-                "subtype": "Face or neck"
+                "subtype": "Face, neck"
               },
               {
                 "name": "Skin lumps",
@@ -329,7 +274,7 @@
                 "subtype": "Pus-filled"
               },
               {
-                "name": "Bad odor",
+                "name": "Bad Odor",
                 "stage": "Any",
                 "weight": 0.3,
                 "severity": "Low",
@@ -381,7 +326,7 @@
                 "severity": "Medium",
                 "priority": 2,
                 "duration_range": "3-5 days",
-                "subtype": "Dry or Honking"
+                "subtype": "Dry, Honking"
               },
               {
                 "name": "Nasal discharge",
@@ -390,7 +335,7 @@
                 "severity": "Low",
                 "priority": 2,
                 "duration_range": "3-5 days",
-                "subtype": "Clear or Yellow"
+                "subtype": "Clear, Yellow"
               },
               {
                 "name": "Eye discharge",
@@ -399,7 +344,7 @@
                 "severity": "Low",
                 "priority": 2,
                 "duration_range": "3-5 days",
-                "subtype": "Watery or Mucous"
+                "subtype": "Watery, Mucous"
               },
               {
                 "name": "Fever",
@@ -436,7 +381,7 @@
                 "severity": "High",
                 "priority": 3,
                 "duration_range": "1-2 days",
-                "subtype": "Watery or Mucous"
+                "subtype": "Watery, Mucous"
               },
               {
                 "name": "Mucus in stool",
@@ -527,7 +472,7 @@
                 "severity": "High",
                 "priority": 3,
                 "duration_range": "3-5 days",
-                "subtype": "Yellow gums or eyes"
+                "subtype": "Yellow gums, eyes"
               },
               {
                 "name": "Lethargy",
@@ -591,7 +536,7 @@
                 "severity": "Low",
                 "priority": 2,
                 "duration_range": "3-5 days",
-                "subtype": "Clear or Yellow"
+                "subtype": "Clear, Yellow"
               }
             ]
           },
@@ -610,7 +555,7 @@
                 "severity": "Low",
                 "priority": 3,
                 "duration_range": "3-5 days",
-                "subtype": "Occasional or Frequent"
+                "subtype": "Occasional, Frequent"
               },
               {
                 "name": "Nasal discharge",
@@ -619,7 +564,7 @@
                 "severity": "Low",
                 "priority": 2,
                 "duration_range": "3-5 days",
-                "subtype": "Clear or Mucous"
+                "subtype": "Clear, Mucous"
               },
               {
                 "name": "Eye discharge",
@@ -628,7 +573,7 @@
                 "severity": "Low",
                 "priority": 2,
                 "duration_range": "3-5 days",
-                "subtype": "Watery or Yellow"
+                "subtype": "Watery, Yellow"
               },
               {
                 "name": "Mouth ulcers",
@@ -637,7 +582,7 @@
                 "severity": "Medium",
                 "priority": 3,
                 "duration_range": "6-10 days",
-                "subtype": "Tongue or Palate"
+                "subtype": "Tongue, Palate"
               },
               {
                 "name": "Drooling",
@@ -673,7 +618,7 @@
                 "severity": "Medium",
                 "priority": 2,
                 "duration_range": "3-5 days",
-                "subtype": "Intermittent or shifting"
+                "subtype": "Intermittent, shifting"
               },
               {
                 "name": "Loss of appetite",
@@ -701,7 +646,7 @@
                 "severity": "High",
                 "priority": 3,
                 "duration_range": "3-5 days",
-                "subtype": "Cheek or jaw"
+                "subtype": "Cheek, jaw"
               },
               {
                 "name": "Drooling",
@@ -713,7 +658,7 @@
                 "subtype": "Thick, Possibly bloody"
               },
               {
-                "name": "Bad breath",
+                "name": "Bad Breath",
                 "stage": "Any",
                 "weight": 0.4,
                 "severity": "Medium",
@@ -741,7 +686,7 @@
             "size": "Any",
             "symptoms": [
               {
-                "name": "Wobbly walk",
+                "name": "Wobbling",
                 "stage": "Early",
                 "weight": 0.5,
                 "severity": "Medium",
@@ -765,16 +710,16 @@
                 "severity": "Medium",
                 "priority": 2,
                 "duration_range": "15+ days",
-                "subtype": "Jerky or erratic"
+                "subtype": "Jerky, erratic"
               },
               {
-                "name": "Falling",
+                "name": "Falling Over",
                 "stage": "Any",
                 "weight": 0.3,
                 "severity": "Low",
                 "priority": 1,
                 "duration_range": "15+ days",
-                "subtype": "During walking or turning"
+                "subtype": "During walking, turning"
               }
             ]
           },
@@ -903,7 +848,7 @@
                 "severity": "High",
                 "priority": 3,
                 "duration_range": "1-2 days",
-                "subtype": "Labored or rapid"
+                "subtype": "Labored, rapid"
               },
               {
                 "name": "Lethargy",
@@ -944,61 +889,6 @@
             ]
           },
           {
-            "illness": "Cushing's Disease (Hyperadrenocorticism) in Cats",
-            "type": "Endocrine",
-            "confidence": 0.85,
-            "age_range": "Adult",
-            "breed": "Any",
-            "size": "Any",
-            "symptoms": [
-              {
-                "name": "Hair loss",
-                "stage": "Progressive",
-                "weight": 0.5,
-                "severity": "Medium",
-                "priority": 3,
-                "duration_range": "6-10 days",
-                "subtype": "Patchy or thinning"
-              },
-              {
-                "name": "Pot-bellied look",
-                "stage": "Any",
-                "weight": 0.5,
-                "severity": "Medium",
-                "priority": 3,
-                "duration_range": "6-10 days",
-                "subtype": ""
-              },
-              {
-                "name": "Increased thirst",
-                "stage": "Any",
-                "weight": 0.4,
-                "severity": "Medium",
-                "priority": 2,
-                "duration_range": "6-10 days",
-                "subtype": ""
-              },
-              {
-                "name": "Thin skin",
-                "stage": "Progressive",
-                "weight": 0.3,
-                "severity": "Medium",
-                "priority": 2,
-                "duration_range": "6-10 days",
-                "subtype": "Delicate, fragile"
-              },
-              {
-                "name": "Lethargy",
-                "stage": "Any",
-                "weight": 0.3,
-                "severity": "Low",
-                "priority": 2,
-                "duration_range": "3-5 days",
-                "subtype": ""
-              }
-            ]
-          },
-          {
             "illness": "Demodectic Mange in Cats",
             "type": "Parasitic (Skin Mite)",
             "confidence": 0.8,
@@ -1013,7 +903,7 @@
                 "severity": "Medium",
                 "priority": 3,
                 "duration_range": "6-10 days",
-                "subtype": "Patchy or localized"
+                "subtype": "Patchy, localized"
               },
               {
                 "name": "Scabs",
@@ -1049,7 +939,7 @@
                 "severity": "Medium",
                 "priority": 2,
                 "duration_range": "6-10 days",
-                "subtype": "Chronic or inflamed areas"
+                "subtype": "Chronic, inflamed areas"
               }
             ]
           },
@@ -1062,7 +952,7 @@
             "size": "Any",
             "symptoms": [
               {
-                "name": "Bad breath",
+                "name": "Bad Breath",
                 "stage": "Early",
                 "weight": 0.5,
                 "severity": "Medium",
@@ -1095,7 +985,7 @@
                 "severity": "Medium",
                 "priority": 2,
                 "duration_range": "3-5 days",
-                "subtype": "Red or inflamed"
+                "subtype": "Red, inflamed"
               },
               {
                 "name": "Pawing at mouth",
@@ -1104,7 +994,7 @@
                 "severity": "Low",
                 "priority": 1,
                 "duration_range": "3-5 days",
-                "subtype": "Discomfort or pain"
+                "subtype": "Discomfort, pain"
               }
             ]
           },
@@ -1159,7 +1049,7 @@
                 "severity": "Medium",
                 "priority": 2,
                 "duration_range": "3-5 days",
-                "subtype": "Limping or dragging legs"
+                "subtype": "Limping, dragging legs"
               }
             ]
           },
@@ -1242,7 +1132,7 @@
                 "severity": "High",
                 "priority": 2,
                 "duration_range": "1-2 days",
-                "subtype": "Limb or body rigidity"
+                "subtype": "Limb, body rigidity"
               },
               {
                 "name": "Drooling",
@@ -1270,52 +1160,6 @@
                 "priority": 3,
                 "duration_range": "1-2 days",
                 "subtype": ""
-              }
-            ]
-          },
-          {
-            "illness": "Face Nerve Paralysis in Cats",
-            "type": "Neurological (Facial)",
-            "confidence": 0.8,
-            "age_range": "Any",
-            "breed": "Any",
-            "size": "Any",
-            "symptoms": [
-              {
-                "name": "Drooping face",
-                "stage": "Early",
-                "weight": 0.5,
-                "severity": "High",
-                "priority": 3,
-                "duration_range": "6-10 days",
-                "subtype": "One-sided"
-              },
-              {
-                "name": "Inability to blink",
-                "stage": "Any",
-                "weight": 0.4,
-                "severity": "Medium",
-                "priority": 2,
-                "duration_range": "6-10 days",
-                "subtype": "One eye stays open"
-              },
-              {
-                "name": "Drooling",
-                "stage": "Any",
-                "weight": 0.4,
-                "severity": "Medium",
-                "priority": 2,
-                "duration_range": "6-10 days",
-                "subtype": "Asymmetrical"
-              },
-              {
-                "name": "Uneven whiskers",
-                "stage": "Any",
-                "weight": 0.3,
-                "severity": "Low",
-                "priority": 1,
-                "duration_range": "6-10 days",
-                "subtype": "Tilted to one side"
               }
             ]
           },
@@ -1400,13 +1244,13 @@
                 "subtype": "Withdrawn behavior"
               },
               {
-                "name": "Unsteady walk",
+                "name": "Unsteadiness",
                 "stage": "Late",
                 "weight": 0.3,
                 "severity": "Medium",
                 "priority": 2,
                 "duration_range": "3-5 days",
-                "subtype": "Wobbly or weak"
+                "subtype": "Wobbly, weak"
               }
             ]
           },
@@ -1434,7 +1278,7 @@
                 "severity": "Low",
                 "priority": 2,
                 "duration_range": "3-5 days",
-                "subtype": "Clear or Yellow"
+                "subtype": "Clear, Yellow"
               },
               {
                 "name": "Eye discharge",
@@ -1443,7 +1287,7 @@
                 "severity": "Low",
                 "priority": 2,
                 "duration_range": "3-5 days",
-                "subtype": "Watery or Mucous"
+                "subtype": "Watery, Mucous"
               },
               {
                 "name": "Squinting",
@@ -1552,7 +1396,7 @@
             "type": "Parasitic (Protozoal)",
             "confidence": 0.85,
             "age_range": "Any",
-            "breed": "Outdoor or multi-cat prone",
+            "breed": "Outdoor, multi-cat prone",
             "size": "Any",
             "symptoms": [
               {
@@ -1629,7 +1473,7 @@
                 "subtype": "Painful"
               },
               {
-                "name": "Bad breath",
+                "name": "Bad Breath",
                 "stage": "Any",
                 "weight": 0.4,
                 "severity": "Low",
@@ -1653,62 +1497,7 @@
                 "severity": "Medium",
                 "priority": 2,
                 "duration_range": "3-5 days",
-                "subtype": "When eating or touched"
-              }
-            ]
-          },
-          {
-            "illness": "Granulomatous Meningoencephalitis (GME)",
-            "type": "Neurological (Inflammatory)",
-            "confidence": 0.8,
-            "age_range": "Any",
-            "breed": "Any",
-            "size": "Any",
-            "symptoms": [
-              {
-                "name": "Head tilt",
-                "stage": "Early",
-                "weight": 0.5,
-                "severity": "Medium",
-                "priority": 3,
-                "duration_range": "3-5 days",
-                "subtype": ""
-              },
-              {
-                "name": "Seizures",
-                "stage": "Any",
-                "weight": 0.4,
-                "severity": "High",
-                "priority": 3,
-                "duration_range": "1-2 days",
-                "subtype": "Focal or Generalized"
-              },
-              {
-                "name": "Walking in circles",
-                "stage": "Any",
-                "weight": 0.4,
-                "severity": "Medium",
-                "priority": 2,
-                "duration_range": "3-5 days",
-                "subtype": "Toward affected side"
-              },
-              {
-                "name": "Loss of balance",
-                "stage": "Any",
-                "weight": 0.4,
-                "severity": "Medium",
-                "priority": 2,
-                "duration_range": "3-5 days",
-                "subtype": "Stumbling or falling"
-              },
-              {
-                "name": "Weakness",
-                "stage": "Any",
-                "weight": 0.3,
-                "severity": "Medium",
-                "priority": 2,
-                "duration_range": "3-5 days",
-                "subtype": "One side more affected"
+                "subtype": "When eating, touched"
               }
             ]
           },
@@ -1745,7 +1534,7 @@
                 "severity": "High",
                 "priority": 3,
                 "duration_range": "3-5 days",
-                "subtype": "Labored or shallow"
+                "subtype": "Labored, shallow"
               },
               {
                 "name": "Lethargy",
@@ -1772,7 +1561,7 @@
             "type": "Musculoskeletal",
             "confidence": 0.85,
             "age_range": "Adult",
-            "breed": "Large or purebred prone",
+            "breed": "Large, purebred prone",
             "size": "Medium to Large",
             "symptoms": [
               {
@@ -1782,7 +1571,7 @@
                 "severity": "Medium",
                 "priority": 3,
                 "duration_range": "6-10 days",
-                "subtype": "Intermittent or constant"
+                "subtype": "Intermittent, constant"
               },
               {
                 "name": "Difficulty moving",
@@ -1791,7 +1580,7 @@
                 "severity": "Medium",
                 "priority": 2,
                 "duration_range": "6-10 days",
-                "subtype": "Hesitant to climb or jump"
+                "subtype": "Hesitant to climb, jump"
               },
               {
                 "name": "Stiffness",
@@ -1809,7 +1598,7 @@
                 "severity": "High",
                 "priority": 2,
                 "duration_range": "3-5 days",
-                "subtype": "Hips or lower back"
+                "subtype": "Hips, lower back"
               }
             ]
           },
@@ -1837,7 +1626,7 @@
                 "severity": "Medium",
                 "priority": 2,
                 "duration_range": "1-2 days",
-                "subtype": "Loose or Bloody"
+                "subtype": "Loose, Bloody"
               },
               {
                 "name": "Weight loss",
@@ -1950,7 +1739,7 @@
                 "subtype": "Foamy, Yellow"
               },
               {
-                "name": "Bad breath",
+                "name": "Bad Breath",
                 "stage": "Any",
                 "weight": 0.4,
                 "severity": "Medium",
@@ -2014,7 +1803,7 @@
                 "subtype": ""
               },
               {
-                "name": "Painful abdomen",
+                "name": "Abdominal Pain",
                 "stage": "Any",
                 "weight": 0.4,
                 "severity": "High",
@@ -2048,7 +1837,7 @@
                 "severity": "High",
                 "priority": 3,
                 "duration_range": "1-2 days",
-                "subtype": "Pink or red tint"
+                "subtype": "Pink, red tint"
               },
               {
                 "name": "Painful urination",
@@ -2057,7 +1846,7 @@
                 "severity": "High",
                 "priority": 2,
                 "duration_range": "1-2 days",
-                "subtype": "Straining or vocalizing"
+                "subtype": "Straining, vocalizing"
               },
               {
                 "name": "Frequent urination",
@@ -2084,11 +1873,11 @@
             "type": "Musculoskeletal (Joint)",
             "confidence": 0.8,
             "age_range": "Any",
-            "breed": "Small or purebred prone",
+            "breed": "Small, purebred prone",
             "size": "Any",
             "symptoms": [
               {
-                "name": "Skipping steps",
+                "name": "Skipping Gait",
                 "stage": "Early",
                 "weight": 0.5,
                 "severity": "Medium",
@@ -2121,7 +1910,7 @@
                 "severity": "Low",
                 "priority": 1,
                 "duration_range": "3-5 days",
-                "subtype": "Avoids jumping or climbing"
+                "subtype": "Avoids jumping, climbing"
               }
             ]
           },
@@ -2134,7 +1923,7 @@
             "size": "Any",
             "symptoms": [
               {
-                "name": "Bad breath",
+                "name": "Bad Breath",
                 "stage": "Early",
                 "weight": 0.5,
                 "severity": "Medium",
@@ -2167,7 +1956,7 @@
                 "severity": "Medium",
                 "priority": 2,
                 "duration_range": "3-5 days",
-                "subtype": "When eating or touched"
+                "subtype": "When eating, touched"
               },
               {
                 "name": "Drooling",
@@ -2176,7 +1965,7 @@
                 "severity": "Low",
                 "priority": 1,
                 "duration_range": "3-5 days",
-                "subtype": "Thick or blood-tinged"
+                "subtype": "Thick, blood-tinged"
               }
             ]
           },
@@ -2195,7 +1984,7 @@
                 "severity": "High",
                 "priority": 3,
                 "duration_range": "1-2 days",
-                "subtype": "Sudden or unprovoked"
+                "subtype": "Sudden, unprovoked"
               },
               {
                 "name": "Excessive drooling",
@@ -2216,13 +2005,13 @@
                 "subtype": "Staring, aimless movement"
               },
               {
-                "name": "Unsteady walk",
+                "name": "Unsteadiness",
                 "stage": "Any",
                 "weight": 0.3,
                 "severity": "Medium",
                 "priority": 2,
                 "duration_range": "1-2 days",
-                "subtype": "Staggering or falling"
+                "subtype": "Staggering, falling"
               },
               {
                 "name": "Sudden behavior changes",
@@ -2231,7 +2020,7 @@
                 "severity": "High",
                 "priority": 2,
                 "duration_range": "1-2 days",
-                "subtype": "Friendly to fearful, or vice versa"
+                "subtype": "Friendly to fearful,, vice versa"
               },
               {
                 "name": "Difficulty swallowing",
@@ -2240,7 +2029,7 @@
                 "severity": "High",
                 "priority": 2,
                 "duration_range": "1-2 days",
-                "subtype": "Gagging or choking"
+                "subtype": "Gagging, choking"
               },
               {
                 "name": "Seizures",
@@ -2258,7 +2047,7 @@
                 "severity": "Critical",
                 "priority": 3,
                 "duration_range": "1-2 days",
-                "subtype": "Rear legs or full body"
+                "subtype": "Rear legs, full body"
               }
             ]
           },
@@ -2271,7 +2060,7 @@
             "size": "Any",
             "symptoms": [
               {
-                "name": "Bloated belly",
+                "name": "Bloating",
                 "stage": "Early",
                 "weight": 0.5,
                 "severity": "Medium",
@@ -2295,7 +2084,7 @@
                 "severity": "Medium",
                 "priority": 2,
                 "duration_range": "1-2 days",
-                "subtype": "Loose or Mucous"
+                "subtype": "Loose, Mucous"
               },
               {
                 "name": "Worms in stool",
@@ -2353,7 +2142,7 @@
                 "subtype": "Chews on one side"
               },
               {
-                "name": "Bad breath",
+                "name": "Bad Breath",
                 "stage": "Any",
                 "weight": 0.3,
                 "severity": "Medium",
@@ -2368,7 +2157,7 @@
                 "severity": "Medium",
                 "priority": 2,
                 "duration_range": "3-5 days",
-                "subtype": "Inflamed or ulcerated"
+                "subtype": "Inflamed, ulcerated"
               }
             ]
           },
@@ -2377,7 +2166,7 @@
             "type": "Parasitic (Intestinal)",
             "confidence": 0.85,
             "age_range": "Any",
-            "breed": "Flea-prone or outdoor cats",
+            "breed": "Flea-prone, outdoor cats",
             "size": "Any",
             "symptoms": [
               {
@@ -2396,7 +2185,7 @@
                 "severity": "High",
                 "priority": 3,
                 "duration_range": "1-2 days",
-                "subtype": "White grains or ribbons"
+                "subtype": "White grains, ribbons"
               },
               {
                 "name": "Vomiting",
@@ -2428,116 +2217,6 @@
             ]
           },
           {
-            "illness": "Tetralogy of Fallot in Cats",
-            "type": "Cardiac (Congenital)",
-            "confidence": 0.85,
-            "age_range": "Kitten",
-            "breed": "Genetic predisposition",
-            "size": "Any",
-            "symptoms": [
-              {
-                "name": "Blue-tinged gums",
-                "stage": "Early",
-                "weight": 0.5,
-                "severity": "High",
-                "priority": 3,
-                "duration_range": "1-2 days",
-                "subtype": "Cyanosis"
-              },
-              {
-                "name": "Shortness of breath",
-                "stage": "Any",
-                "weight": 0.5,
-                "severity": "High",
-                "priority": 3,
-                "duration_range": "1-2 days",
-                "subtype": "Labored or rapid"
-              },
-              {
-                "name": "Weakness",
-                "stage": "Any",
-                "weight": 0.4,
-                "severity": "Medium",
-                "priority": 2,
-                "duration_range": "3-5 days",
-                "subtype": "Low energy, reluctant to move"
-              },
-              {
-                "name": "Lethargy",
-                "stage": "Any",
-                "weight": 0.3,
-                "severity": "Low",
-                "priority": 2,
-                "duration_range": "3-5 days",
-                "subtype": ""
-              },
-              {
-                "name": "Stunted growth",
-                "stage": "Progressive",
-                "weight": 0.4,
-                "severity": "Medium",
-                "priority": 2,
-                "duration_range": "15+ days",
-                "subtype": "Undersized for age"
-              }
-            ]
-          },
-          {
-            "illness": "Tick Paralysis in Cats",
-            "type": "Parasitic (Tick-borne Toxin)",
-            "confidence": 0.85,
-            "age_range": "Any",
-            "breed": "Outdoor or long-haired breeds",
-            "size": "Any",
-            "symptoms": [
-              {
-                "name": "Weakness",
-                "stage": "Early",
-                "weight": 0.5,
-                "severity": "High",
-                "priority": 3,
-                "duration_range": "1-2 days",
-                "subtype": "Rear limbs first"
-              },
-              {
-                "name": "Unsteady walk",
-                "stage": "Any",
-                "weight": 0.4,
-                "severity": "Medium",
-                "priority": 2,
-                "duration_range": "1-2 days",
-                "subtype": "Wobbly or staggering"
-              },
-              {
-                "name": "Paralysis",
-                "stage": "Progressive",
-                "weight": 0.5,
-                "severity": "Critical",
-                "priority": 3,
-                "duration_range": "1-2 days",
-                "subtype": "Can progress to full-body"
-              },
-              {
-                "name": "Change in voice",
-                "stage": "Any",
-                "weight": 0.3,
-                "severity": "Low",
-                "priority": 2,
-                "duration_range": "1-2 days",
-                "subtype": "Hoarse or weak meow"
-              },
-              {
-                "name": "Difficulty breathing",
-                "stage": "Late",
-                "weight": 0.4,
-                "severity": "Critical",
-                "priority": 3,
-                "duration_range": "1-2 days",
-                "subtype": "Shallow or gasping"
-              }
-            ]
-          },
-          {
             "illness": "Tooth Resorption in Cats",
             "type": "Dental (Degenerative)",
             "confidence": 0.85,
@@ -2552,7 +2231,7 @@
                 "severity": "Medium",
                 "priority": 3,
                 "duration_range": "1-2 days",
-                "subtype": "When eating or touched"
+                "subtype": "When eating, touched"
               },
               {
                 "name": "Dropping food",
@@ -2625,7 +2304,7 @@
                 "severity": "High",
                 "priority": 3,
                 "duration_range": "3-5 days",
-                "subtype": "Labored or shallow"
+                "subtype": "Labored, shallow"
               },
               {
                 "name": "Eye discharge",
@@ -2634,62 +2313,7 @@
                 "severity": "Low",
                 "priority": 2,
                 "duration_range": "3-5 days",
-                "subtype": "Watery or yellow"
-              }
-            ]
-          },
-          {
-            "illness": "Tularemia in Cats",
-            "type": "Bacterial (Zoonotic)",
-            "confidence": 0.85,
-            "age_range": "Any",
-            "breed": "Outdoor/hunting cats",
-            "size": "Any",
-            "symptoms": [
-              {
-                "name": "Fever",
-                "stage": "Early",
-                "weight": 0.5,
-                "severity": "High",
-                "priority": 3,
-                "duration_range": "1-2 days",
-                "subtype": ""
-              },
-              {
-                "name": "Lethargy",
-                "stage": "Any",
-                "weight": 0.4,
-                "severity": "Medium",
-                "priority": 2,
-                "duration_range": "3-5 days",
-                "subtype": ""
-              },
-              {
-                "name": "Swollen lymph nodes",
-                "stage": "Any",
-                "weight": 0.4,
-                "severity": "Medium",
-                "priority": 2,
-                "duration_range": "3-5 days",
-                "subtype": "Jaw, neck, or groin"
-              },
-              {
-                "name": "Skin ulcers",
-                "stage": "Any",
-                "weight": 0.3,
-                "severity": "Medium",
-                "priority": 2,
-                "duration_range": "6-10 days",
-                "subtype": "Crusted or oozing"
-              },
-              {
-                "name": "Loss of appetite",
-                "stage": "Any",
-                "weight": 0.3,
-                "severity": "Low",
-                "priority": 2,
-                "duration_range": "1-2 days",
-                "subtype": ""
+                "subtype": "Watery, yellow"
               }
             ]
           },
@@ -2717,7 +2341,7 @@
                 "severity": "Medium",
                 "priority": 2,
                 "duration_range": "3-5 days",
-                "subtype": "Stumbling or falling"
+                "subtype": "Stumbling, falling"
               },
               {
                 "name": "Walking in circles",
@@ -2735,7 +2359,7 @@
                 "severity": "Low",
                 "priority": 2,
                 "duration_range": "1-2 days",
-                "subtype": "Horizontal or vertical nystagmus"
+                "subtype": "Horizontal, vertical nystagmus"
               },
               {
                 "name": "Nausea",
@@ -2744,7 +2368,7 @@
                 "severity": "Low",
                 "priority": 2,
                 "duration_range": "1-2 days",
-                "subtype": "May drool or vomit"
+                "subtype": "May drool, vomit"
               }
             ]
           }                                                                                                                      
