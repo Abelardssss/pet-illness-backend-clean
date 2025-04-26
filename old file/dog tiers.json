@@ -1,0 +1,528 @@
+{
+    "illness": {
+        "Canine Enteric Coronavirus": {
+            "Tier 0": ["Diarrhea", "Vomiting"],
+            "Tier 1": ["Lethargy", "Abdominal Pain"],
+            "Tier 2": ["Decreased Appetite"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Canine Respiratory Coronavirus": {
+            "Tier 0": ["Coughing"],
+            "Tier 1": ["Fever", "Sneezing", "Nasal Discharge", "Lethargy"],
+            "Tier 2": ["Eye Discharge", "Difficulty Breathing", "Decreased Appetite"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Canine Distemper": {
+            "Tier 0": ["Seizures"],
+            "Tier 1": ["Fever", "Diarrhea", "Vomiting", "Coughing", "Nasal Discharge", "Eye Discharge", "Lethargy"],
+            "Tier 2": ["Dehydration", "Depression", "Muscle Twitching", "Weight Loss", "Sneezing"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Canine Herpesvirus": {
+            "Tier 0": ["Seizures"],
+            "Tier 1": ["Coughing", "Fever", "Diarrhea", "Lethargy"],
+            "Tier 2": ["Abdominal Pain", "Breathing Difficulty", "Decreased Appetite", "Eye Discharge", "Eye Inflammation", "Excessive Crying", "Nasal Discharge", "Sneezing", "Weakness", "Weight Loss"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Canine Influenza": {
+            "Tier 0": ["Coughing"],
+            "Tier 1": ["Fever", "Breathing Difficulty", "Lethargy"],
+            "Tier 2": ["Decreased Appetite", "Eye Discharge", "Nasal Discharge", "Sneezing"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Kennel Cough": {
+            "Tier 0": ["Coughing"],
+            "Tier 1": ["Fever", "Lethargy"],
+            "Tier 2": ["Decreased Appetite", "Eye Discharge", "Gagging", "Nasal Discharge", "Retching", "Sneezing"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Canine Parvovirus": {
+            "Tier 0": ["Diarrhea", "Vomiting"],
+            "Tier 1": ["Fever", "Loss of Appetite"],
+            "Tier 2": ["Lethargy", "Depression", "Dehydration", "Abdominal Pain"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Rabies": {
+            "Tier 0": ["Seizures", "Muscle Paralysis"],
+            "Tier 1": ["Fever", "Aggression", "Confusion", "Difficulty Swallowing", "Excessive Drooling", "Irritability", "Staggering"],
+            "Tier 2": ["Anxiety", "Decreased Appetite", "Fearfulness", "Lethargy", "Light Sensitivity", "Restlessness", "Sound Sensitivity", "Unusual Behavior", "Vomiting", "Weakness"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Canine Minute Virus": {
+            "Tier 0": ["Diarrhea", "Vomiting"],
+            "Tier 1": ["Fever", "Loss of Appetite", "Lethargy"],
+            "Tier 2": ["Abdominal Pain", "Dehydration", "Breathing Difficulty", "Hypothermia", "Weight Loss"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Infectious Canine Hepatitis": {
+            "Tier 0": ["Seizures"],
+            "Tier 1": ["Fever", "Vomiting", "Diarrhea", "Coughing", "Lethargy"],
+            "Tier 2": ["Abdominal Pain", "Eye Discharge", "Eye Inflammation", "Nasal Discharge", "Jaundice", "Dehydration", "Depression", "Petechiae on Skin", "Spontaneous Bleeding", "Swelling", "Thirst", "Yellow Gums", "Yellow Skin"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Brucellosis": {
+            "Tier 0": ["Abnormal Breeding Behavior", "Enlarged Testicles", "Vaginal Discharge"],
+            "Tier 1": ["Back Pain", "Difficulty Walking", "Swollen Lymph Nodes"],
+            "Tier 2": ["Lethargy", "Loss of Appetite", "Weakness"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Leptospirosis": {
+            "Tier 0": ["Fever", "Vomiting", "Diarrhea"],
+            "Tier 1": ["Coughing", "Abdominal Pain", "Difficulty Breathing", "Loss of Appetite", "Lethargy"],
+            "Tier 2": ["Increased Thirst", "Increased Urination", "Jaundice", "Dehydration", "Muscle Pain", "Shivering", "Weakness"],
+            "Tier 3": [],
+            "Tier 4": []        
+        },
+        "Lyme Disease": {
+            "Tier 0": ["Fever", "Lameness"],
+            "Tier 1": ["Swollen Joints", "Enlarged Lymph Nodes", "Lethargy"],
+            "Tier 2": ["Decreased Appetite", "Depression"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Ehrlichiosis": {
+            "Tier 0": ["Fever", "Loss of Appetite"],
+            "Tier 1": ["Coughing", "Lethargy", "Lameness"],
+            "Tier 2": ["Bleeding", "Depression", "Enlarged Lymph Nodes", "Nosebleeds", "Breathing Difficulty", "Weight Loss"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Rocky Mountain Spotted Fever": {
+            "Tier 0": ["Fever", "Diarrhea", "Vomiting"],
+            "Tier 1": ["Coughing", "Abdominal Pain", "Eye Discharge", "Joint Pain", "Lethargy"],
+            "Tier 2": ["Bleeding", "Depression", "Enlarged Lymph Nodes", "Lameness", "Nosebleeds"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Clostridial Infections": {
+            "Tier 0": ["Diarrhea", "Vomiting"],
+            "Tier 1": ["Loss of Appetite", "Lethargy"],
+            "Tier 2": ["Abdominal Pain", "Bloating", "Weakness"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Anaerobic Bacterial Infections": {
+            "Tier 0": ["Fever"],
+            "Tier 1": ["Loss of Appetite", "Lethargy"],
+            "Tier 2": ["Abscesses", "Bad Breath", "Difficulty Eating", "Swelling at Infection Site"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Actinomycosis (Bacterial Infection)": {
+            "Tier 0": ["Fever"],
+            "Tier 1": ["Loss of Appetite", "Lethargy"],
+            "Tier 2": ["Abscesses", "Difficulty Eating", "Draining Wounds", "Facial Swelling", "Swollen Lymph Nodes"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Campylobacteriosis (Bacterial Infection)": {
+            "Tier 0": ["Diarrhea", "Vomiting"],
+            "Tier 1": ["Fever", "Loss of Appetite"],
+            "Tier 2": ["Abdominal Pain", "Lethargy"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Streptococcus Infections": {
+            "Tier 0": ["Fever", "Coughing"],
+            "Tier 1": ["Loss of Appetite", "Lethargy"],
+            "Tier 2": ["Difficulty Breathing", "Nasal Discharge", "Swollen Lymph Nodes"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Hookworms": {
+            "Tier 0": ["Anemia", "Pale Gums", "Dark Stool", "Diarrhea"],
+            "Tier 1": ["Breathing Difficulty", "Weight Loss", "Poor Growth"],
+            "Tier 2": ["Lethargy", "Weakness", "Coughing"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Tapeworms": {
+            "Tier 0": ["Worms in Stool", "Diarrhea"],
+            "Tier 1": ["Vomiting", "Weight Loss"],
+            "Tier 2": ["Scooting", "Increased Appetite", "Abdominal Discomfort", "Dull Coat"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Roundworms": {
+            "Tier 0": ["Worms in Stool", "Diarrhea", "Vomiting"],
+            "Tier 1": ["Coughing", "Weight Loss"],
+            "Tier 2": ["Dull Coat", "Pot-Belly", "Poor Growth", "Abdominal Discomfort"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Fleas": {
+            "Tier 0": ["Fleas", "Flea Dirt"],
+            "Tier 1": ["Excessive Scratching", "Redness", "Skin Irritation", "Hair Loss"],
+            "Tier 2": ["Restlessness"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Ticks": {
+            "Tier 0": ["Ticks", "Paralysis"],
+            "Tier 1": ["Itching", "Skin Inflammation"],
+            "Tier 2": ["Anemia", "Hair Loss"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Heartworm Disease": {
+            "Tier 0": ["Coughing", "Breathing Difficulty"],
+            "Tier 1": ["Lethargy", "Exercise Intolerance", "Fatigue"],
+            "Tier 2": ["Weight Loss"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Ear Mites": {
+            "Tier 0": ["Ear Scratching", "Ear Discharge"],
+            "Tier 1": ["Head Shaking", "Ear Odor"],
+            "Tier 2": ["Inflammation"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Cheyletiellosis (Walking Dandruff)": {
+            "Tier 0": ["Dandruff", "Excessive Scratching"],
+            "Tier 1": ["Skin Scaling", "Hair Loss", "Redness"],
+            "Tier 2": [],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Chiggers": {
+            "Tier 0": ["Excessive Scratching", "Visible Mites"],
+            "Tier 1": ["Skin Irritation", "Redness", "Hair Loss"],
+            "Tier 2": [],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Mange (Demodectic and Sarcoptic)": {
+            "Tier 0": ["Excessive Scratching", "Hair Loss"],
+            "Tier 1": ["Redness", "Skin Scaling", "Skin Thickening"],
+            "Tier 2": ["Sores"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Sarcoptes scabiei (Scabies)": {
+            "Tier 0": ["Excessive Scratching", "Hair Loss"],
+            "Tier 1": ["Redness", "Skin Scaling"],
+            "Tier 2": ["Sores"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Ameba Infection": {
+            "Tier 0": ["Diarrhea", "Vomiting"],
+            "Tier 1": ["Loss of Appetite"],
+            "Tier 2": ["Lethargy", "Weight Loss"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Babesiosis": {
+            "Tier 0": ["Fever", "Anemia"],
+            "Tier 1": ["Jaundice", "Dark Urine"],
+            "Tier 2": ["Lethargy", "Pale Gums", "Weakness"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Coccidia in Dogs": {
+            "Tier 0": ["Diarrhea", "Vomiting"],
+            "Tier 1": ["Loss of Appetite"],
+            "Tier 2": ["Lethargy", "Dehydration", "Weight Loss"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Cryptosporidium in Dogs": {
+            "Tier 0": ["Diarrhea", "Vomiting"],
+            "Tier 1": ["Loss of Appetite"],
+            "Tier 2": ["Lethargy", "Weight Loss"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Toxoplasmosis in Dogs": {
+            "Tier 0": ["Diarrhea", "Vomiting", "Fever"],
+            "Tier 1": ["Loss of Appetite", "Coughing", "Breathing Difficulty"],
+            "Tier 2": [
+                "Lethargy", "Pain", "Muscle Weakness", "Difficulty Walking", "Difficulty Standing",
+                "Neurological Signs", "Lameness", "Joint Swelling", "Osteoarthritis", "Reduced Activity", "Stiffness", "Weight Gain"
+            ],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Osteoarthritis": {
+            "Tier 0": ["Pain", "Joint Swelling"],
+            "Tier 1": ["Difficulty Standing", "Difficulty Walking", "Lameness", "Stiffness"],
+            "Tier 2": ["Reduced Activity", "Lethargy", "Weight Gain"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Hip Dysplasia": {
+            "Tier 0": ["Pain"],
+            "Tier 1": ["Lameness", "Stiffness", "Reduced Activity"],
+            "Tier 2": ["Bunny Hopping", "Difficulty Running", "Difficulty Rising", "Waddling Gait", "Loss of Muscle Mass"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Elbow Dysplasia": {
+            "Tier 0": ["Pain"],
+            "Tier 1": ["Joint Swelling", "Forelimb Lameness", "Stiffness"],
+            "Tier 2": ["Reduced Activity", "Difficulty Moving Elbow"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Luxating Patella": {
+            "Tier 0": ["Pain"],
+            "Tier 1": ["Skipping Gait", "Sudden Carrying of Leg", "Intermittent Limping", "Hindlimb Lameness"],
+            "Tier 2": [],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Osteochondritis Dissecans": {
+            "Tier 0": ["Pain"],
+            "Tier 1": ["Joint Swelling", "Lameness", "Stiffness"],
+            "Tier 2": ["Reduced Activity"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Panosteitis": {
+            "Tier 0": ["Pain"],
+            "Tier 1": ["Intermittent Lameness", "Shifting Leg Lameness"],
+            "Tier 2": ["Reluctance to Move", "Weight Loss"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Legg-Calvé-Perthes Syndrome": {
+            "Tier 0": ["Hip Pain"],
+            "Tier 1": ["Difficulty Walking", "Lameness", "Stiffness"],
+            "Tier 2": ["Muscle Atrophy"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Back Pain": {
+            "Tier 0": ["Vocalization When Touched"],
+            "Tier 1": ["Arched Back", "Stiffness", "Difficulty Moving", "Reluctance to Jump"],
+            "Tier 2": [],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Congenital Vertebral Anomalies": {
+            "Tier 0": ["Abnormal Posture"],
+            "Tier 1": ["Back Pain", "Difficulty Walking", "Coordination Issues", "Weakness"],
+            "Tier 2": [],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Craniomandibular Osteopathy": {
+            "Tier 0": ["Jaw Pain"],
+            "Tier 1": ["Difficulty Chewing", "Enlarged Jaw", "Reduced Appetite", "Swelling"],
+            "Tier 2": [],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Hypertrophic Osteopathy": {
+            "Tier 0": ["Pain"],
+            "Tier 1": ["Lameness", "Limb Swelling", "Reluctance to Move", "Stiffness"],
+            "Tier 2": [],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Hypertrophic Osteodystrophy": {
+            "Tier 0": ["Fever", "Pain"],
+            "Tier 1": ["Lameness", "Joint Swelling", "Reluctance to Move"],
+            "Tier 2": [],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Spondylosis": {
+            "Tier 0": ["Pain"],
+            "Tier 1": ["Back Stiffness", "Reduced Flexibility", "Lameness", "Difficulty Rising"],
+            "Tier 2": [],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Masticatory Muscle Myositis": {
+            "Tier 0": ["Jaw Pain"],
+            "Tier 1": ["Difficulty Opening Mouth", "Muscle Swelling", "Reduced Appetite", "Sunken Eyes"],
+            "Tier 2": [],
+            "Tier 3": ["Bleeding Gums", "Nosebleeds", "Excessive Bleeding from Minor Wounds", "Prolonged Bleeding After Surgery or Injury"],
+            "Tier 4": []
+        },
+        "Thrombocytopenia": {
+            "Tier 0": ["Blood in Urine"],
+            "Tier 1": ["Excessive Bleeding", "Nosebleeds", "Bruising", "Petechiae"],
+            "Tier 2": [],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Hemolytic Anemia": {
+            "Tier 0": ["Jaundice"],
+            "Tier 1": ["Dark Urine", "Fatigue", "Pale Gums", "Rapid Heart Rate", "Weakness"],
+            "Tier 2": [],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Dilated Cardiomyopathy": {
+            "Tier 0": ["Difficulty Breathing", "Coughing"],
+            "Tier 1": ["Exercise Intolerance", "Rapid Breathing", "Lethargy", "Weakness", "Weight Loss"],
+            "Tier 2": [],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Congestive Heart Failure": {
+            "Tier 0": ["Difficulty Breathing", "Coughing"],
+            "Tier 1": ["Rapid Breathing", "Distended Abdomen", "Exercise Intolerance", "Lethargy", "Weakness"],
+            "Tier 2": [],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Aortic Stenosis": {
+            "Tier 0": ["Collapse"],
+            "Tier 1": ["Difficulty Breathing", "Rapid Breathing", "Exercise Intolerance", "Fainting", "Lethargy"],
+            "Tier 2": [],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Pulmonary Hypertension": {
+            "Tier 0": ["Difficulty Breathing", "Coughing"],
+            "Tier 1": ["Bluish Gums", "Rapid Breathing", "Exercise Intolerance", "Fainting", "Lethargy"],
+            "Tier 2": [],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Heart Valve Dysplasia": {
+            "Tier 0": ["Difficulty Breathing", "Coughing"],
+            "Tier 1": ["Rapid Breathing", "Exercise Intolerance", "Lethargy", "Stunted Growth"],
+            "Tier 2": [],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Patent Ductus Arteriosus": {
+            "Tier 0": ["Difficulty Breathing", "Coughing"],
+            "Tier 1": ["Rapid Breathing", "Exercise Intolerance", "Lethargy", "Stunted Growth"],
+            "Tier 2": [],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Syringomyelia": {
+            "Tier 0": ["Scratching at Neck", "Pain"],
+            "Tier 1": ["Scratching at Air", "Sensitivity to Touch", "Wobbly Gait", "Disorientation", "Head Shaking"],
+            "Tier 2": ["Weakness", "Lethargy"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Epilepsy": {
+            "Tier 0": ["Seizures", "Confusion Post-Seizure"],
+            "Tier 1": ["Disorientation", "Loss of Consciousness", "Muscle Twitching", "Behavioral Changes"],
+            "Tier 2": ["Drooling", "Unusual Eye Movements", "Stiffness"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Cerebellar Hypoplasia": {
+            "Tier 0": [],
+            "Tier 1": ["Coordination Issues", "Falling Over", "Unsteady Gait", "Head Tremors"],
+            "Tier 2": ["Head Tilt", "Wide-Legged Stance", "Wobbling"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Polyneuropathy": {
+            "Tier 0": ["Paralysis"],
+            "Tier 1": ["Difficulty Walking", "Foot Dragging", "Weakness", "Loss of Reflexes"],
+            "Tier 2": ["Muscle Atrophy", "Sensory Deficits", "Tremors"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Cauda Equina Syndrome": {
+            "Tier 0": ["Tail Paralysis"],
+            "Tier 1": ["Pain in Lower Back"],
+            "Tier 2": ["Difficulty Rising", "Hind Limb Atrophy", "Hunched Back", "Incontinence", "Lameness", "Weakness"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Tick Paralysis": {
+            "Tier 0": ["Paralysis"],
+            "Tier 1": ["Difficulty Breathing"],
+            "Tier 2": ["Loss of Appetite", "Loss of Reflexes", "Unsteadiness", "Voice Changes", "Weakness", "Lethargy"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Granulomatous Meningoencephalitis": {
+            "Tier 0": ["Seizures"],
+            "Tier 1": ["Neck Pain"],
+            "Tier 2": ["Blindness", "Circling", "Facial Abnormalities", "Head Tilt", "Loss of Coordination", "Lethargy"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Wobbler Disease": {
+            "Tier 0": [],
+            "Tier 1": ["Neck Pain"],
+            "Tier 2": [],
+            "Tier 3": ["Difficulty Walking", "Loss of Coordination", "Stiffness", "Weakness", "Wobbly Gait", "Worn Toenails"],
+            "Tier 4": []
+        },
+        "Periodontal Disease": {
+            "Tier 0": [],
+            "Tier 1": ["Inflamed Gums", "Loose Teeth"],
+            "Tier 2": ["Bleeding Gums", "Dropping Food", "Weight Loss"],
+            "Tier 3": ["Bad Breath", "Discolored Teeth", "Excessive Drooling", "Reduced Appetite", "Nasal Discharge"],
+            "Tier 4": []
+        },
+        "Tooth Root Abscess": {
+            "Tier 0": [],
+            "Tier 1": ["Oral Pain"],
+            "Tier 2": [],
+            "Tier 3": ["Bad Breath", "Decreased Appetite", "Facial Swelling", "Pawing at Face", "Reluctance to Chew", "Swelling Below Eye"],
+            "Tier 4": []
+        },
+        "Cavities (Dental Caries)": {
+            "Tier 0": [],
+            "Tier 1": ["Oral Pain"],
+            "Tier 2": [],
+            "Tier 3": ["Bad Breath", "Discolored Teeth", "Drooling", "Loose Teeth", "Red Gums", "Swollen Gums"],
+            "Tier 4": []
+        },
+        "Diabetes Mellitus": {
+            "Tier 0": [],
+            "Tier 1": ["Increased Thirst", "Increased Urination", "Recurrent Infections"],
+            "Tier 2": ["Dehydration", "Cataracts"],
+            "Tier 3": ["Increased Appetite", "Lethargy", "Weight Loss"],
+            "Tier 4": []
+        },
+        "Chronic Kidney Disease (CKD)": {
+            "Tier 0": [],
+            "Tier 1": ["Mouth Ulcers", "Nausea", "Vomiting"],
+            "Tier 2": ["Increased Thirst", "Increased Urination"],
+            "Tier 3": ["Bad Breath", "Decreased Appetite", "Diarrhea", "Lethargy", "Weight Loss"],
+            "Tier 4": []
+        },
+        "Chronic Renal Failure": {
+            "Tier 0": [],
+            "Tier 1": ["Vomiting", "Diarrhea"],
+            "Tier 2": [],
+            "Tier 3": [
+                "Bad Breath", "Decreased Appetite", "Increased Thirst", "Increased Urination",
+                "Lethargy", "Mouth Ulcers", "Nausea", "Weight Loss"
+            ],
+            "Tier 4": []
+        },
+        "Kidney Stones": {
+            "Tier 0": ["Blood in Urine"],
+            "Tier 1": ["Difficulty Urinating"],
+            "Tier 2": ["Vomiting", "Abdominal Pain", "Frequent Urination"],
+            "Tier 3": ["Lethargy"],
+            "Tier 4": []
+        },
+        "Glomerulonephritis": {
+            "Tier 0": ["Blood in Urine"],
+            "Tier 1": ["Proteinuria (Foamy Urine)"],
+            "Tier 2": ["Edema (Swelling)", "Weight Loss"],
+            "Tier 3": ["Lethargy"],
+            "Tier 4": []
+        }
+    }    
+}

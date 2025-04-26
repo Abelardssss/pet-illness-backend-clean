@@ -4,32 +4,50 @@ import json
 import pandas as pd
 import os
 
-# 📌 File Paths
+# 📌 File Paths (static ones)
 FACT_BASE_PATH = "data/fact_base.json"
-KNOWLEDGE_BASE_PATH = "data/updated_knowledge_base_v2_fixed.json"
 ILLNESS_INFO_PATH = "data/expanded_illness_info_complete.json"
 FOLLOWUP_QUESTIONS_PATH = "data/updated_follow_up_questions_tuned.json"
-DATASET_PATH = "latest_augmented.csv"
 BREED_CATEGORY_MAP_PATH = "data/breed_category_mapping.json"
 
+# 📌 Initialize Global Variables Safely
+knowledge_base = []
+illness_info = {}
+symptom_followups = {}
+breed_category_mapping = {}
+boosting_model = None
+adaboost_model = None
+selected_features = []
+df = pd.DataFrame()
+all_symptoms = []
 
-# 📌 Load JSON Files
+# 📌 Load JSON Files Helper
 def load_json(file_path):
     with open(file_path, "r") as file:
         return json.load(file)
 
-
-# 📌 Load Data
-knowledge_base = load_json(KNOWLEDGE_BASE_PATH)["rules"]
+# 📌 Load Static Databases (these are always needed)
 illness_info = load_json(ILLNESS_INFO_PATH)
 symptom_followups = load_json(FOLLOWUP_QUESTIONS_PATH)
 breed_category_mapping = load_json(BREED_CATEGORY_MAP_PATH)
 
-# 📌 Load Machine Learning Models
-boosting_model = joblib.load("gradient_model.pkl")
-adaboost_model = joblib.load("adaboost_model.pkl")
-selected_features = joblib.load("adaboost_selected_features.pkl")
+# 📌 Dynamic Pet Resource Loader
+def load_pet_resources(pet_type):
+    """Load knowledge base, ML models, dataset and features depending on pet type."""
+    if pet_type == "dog":
+        kb = load_json("data/dog_knowledge_base.json")["rules"]
+        boost_model = joblib.load("new model/new_dog_gradient_model.pkl")
+        ada_model = joblib.load("new model/new_dog_adaboost_model.pkl")
+        feats = joblib.load("new model/new_dog_adaboost_selected_features.pkl")
+        dataset = pd.read_csv("data/dog_augmented.csv")
+    else:  # cat
+        kb = load_json("data/cat_knowledge_base.json")["rules"]
+        boost_model = joblib.load("new model/new_cat_gradient_model.pkl")
+        ada_model = joblib.load("new model/new_cat_adaboost_model.pkl")
+        feats = joblib.load("new model/new_cat_adaboost_selected_features.pkl")
+        dataset = pd.read_csv("data/cat_augmented.csv")
 
+    return kb, boost_model, ada_model, feats, dataset
 
 # Load Knowledge Base (Rules)
 def load_knowledge_base():
@@ -41,11 +59,6 @@ def load_illness_info():
     """Loads illness information from JSON file."""
     with open(ILLNESS_INFO_PATH, "r") as illness_file:
         return json.load(illness_file)
-
-
-# 📌 Load Dataset & Features
-df = pd.read_csv(DATASET_PATH)
-all_symptoms = [col for col in df.columns if col not in ["Illness"]]
 
 
 # 📌 Categorize Pet Age
@@ -67,8 +80,16 @@ def categorize_age(age):
 # 📌 Get User Input
 def get_user_input():
     """Collect user input for pet details and symptoms."""
-    print("\n🔹 Enter pet owner details:")
-    owner_name = input("➡ Owner's Name: ").strip()
+
+    print("\n🔹 Select your pet type:")
+    pet_type = input("➡ Dog or Cat? ").strip().lower()
+
+    while pet_type not in ["dog", "cat"]:
+        print("❌ Invalid input. Please choose 'dog' or 'cat'.")
+        pet_type = input("➡ Dog or Cat? ").strip().lower()
+
+    print("\n🔹 Enter pet details:")
+    pet_name = input("➡ Pet's Name: ").strip()
 
     print("\n🔹 Enter pet details:")
     age_years = input("➡ Pet Age (in years): ").strip()
@@ -101,7 +122,8 @@ def get_user_input():
             break
 
     return {
-        "owner": owner_name,
+        "pet_type": pet_type,
+        "pet": pet_name,
         "pet_info": {
             "age_years": age_years,
             "age_range": age_range,
@@ -109,8 +131,9 @@ def get_user_input():
             "breed": breed,
         },
         "symptoms": symptoms,
-        "user_answers": user_answers,  # ✅ Ensure `user_answers` is always returned
+        "user_answers": user_answers,
     }
+
 
 
 def parse_duration_range(range_str):
@@ -513,13 +536,18 @@ def adaboost_ranking(possible_diagnoses, fact_base):
             user_answers,
         )
 
+        # Normalize each confidence score between 0 and 1
+        normalized_fc = round(min(fc_score / 1.0, 1.0), 4)
+        normalized_gb = round(min(gb_score / 1.0, 1.0), 4)
+        normalized_ab = round(min(final_confidence_ab / 1.0, 1.0), 4)
+
         refined_diagnoses.append(
             {
                 "illness": diagnosis["illness"],
                 "matched_symptoms": diagnosis["matched_symptoms"],
-                "confidence_fc": fc_score,
-                "confidence_gb": gb_score,
-                "confidence_ab": final_confidence_ab,
+                "confidence_fc": normalized_fc,
+                "confidence_gb": normalized_gb,
+                "confidence_ab": normalized_ab,
             }
         )
 
@@ -796,12 +824,30 @@ def display_symptom_matching(diagnosis, user_answers):
     if not (direct_matches or subtype_matches or followup_matches):
         print("   ❌ No symptoms matched.")
 
+def apply_softmax_to_confidences(diagnoses):
+    """Applies softmax to the final AdaBoost confidence scores of the diagnoses list."""
+    scores = np.array([d["confidence_ab"] for d in diagnoses])
+    exp_scores = np.exp(scores)
+    softmax_probs = exp_scores / np.sum(exp_scores)
+
+    for i, d in enumerate(diagnoses):
+        d["confidence_softmax"] = round(float(softmax_probs[i]), 4)
+
+    return diagnoses
+
 
 # ✅ Structured Comparison Output for Terminal (Place at end of `run_diagnosis()`)
 def run_diagnosis():
     """Executes the diagnosis process using Forward Chaining, Boosting, and AdaBoost models."""
 
     fact_base = get_user_input()
+
+    # 📌 Load Pet-Specific Resources
+    global knowledge_base, boosting_model, adaboost_model, selected_features, df, all_symptoms
+    knowledge_base, boosting_model, adaboost_model, selected_features, df = load_pet_resources(fact_base["pet_type"])
+    all_symptoms = [col for col in df.columns if col not in ["Illness"]]
+
+    # 📌 Proceed with Diagnosis
     possible_diagnoses = forward_chaining(fact_base)
     if not possible_diagnoses:
         print("\n❌ No matching illnesses found. Try entering different symptoms.")
@@ -809,16 +855,14 @@ def run_diagnosis():
 
     refined_diagnoses = gradient_boosting_ranking(possible_diagnoses, fact_base)
     final_diagnoses = adaboost_ranking(refined_diagnoses, fact_base)
-    # 🔢 Normalize AdaBoost scores into confidence percentages
-    max_ab_score = max(d["confidence_ab"] for d in final_diagnoses)
-    for d in final_diagnoses:
-        d["confidence_pct"] = (
-            round((d["confidence_ab"] / max_ab_score) * 100, 2)
-            if max_ab_score > 0
-            else 0.0
-        )
-    final_diagnoses.sort(key=lambda x: -x["confidence_ab"])
-    top_results = final_diagnoses[:5]
+    final_diagnoses = apply_softmax_to_confidences(final_diagnoses)
+
+    final_diagnoses.sort(key=lambda x: -x["confidence_softmax"])
+
+    # Visual threshold and top-N
+    PROB_THRESHOLD = 0.04
+    filtered = [d for d in final_diagnoses if d["confidence_softmax"] >= PROB_THRESHOLD]
+    top_results = filtered[:3]
 
     compare_illnesses(top_results, fact_base)
     fact_base["possible_diagnosis"] = final_diagnoses
@@ -837,7 +881,22 @@ def run_diagnosis():
 
     print("\n🩺 **Final Diagnoses (Forward Chaining + Boosting + AdaBoost):**")
     for diagnosis in top_results:
-        print(f"🔹 {diagnosis['illness']} (Confidence: {diagnosis['confidence_ab']})")
+        # ✅ Show evaluation metrics based on confusion matrix
+        performance = evaluate_illness_performance(diagnosis["illness"])
+        if performance:
+            print("\n📊 **Model Evaluation for this Illness (from full dataset):**")
+            print(f"   - Precision: {performance['metrics']['Precision']}")
+            print(f"   - Recall: {performance['metrics']['Recall']}")
+            print(f"   - Specificity: {performance['metrics']['Specificity']}")
+            print(f"   - F1 Score: {performance['metrics']['F1 Score']}")
+            print("   - Confusion Matrix:")
+            print(
+                f"     TP: {performance['confusion_matrix']['TP']}, FP: {performance['confusion_matrix']['FP']}"
+            )
+            print(
+                f"     FN: {performance['confusion_matrix']['FN']}, TN: {performance['confusion_matrix']['TN']}"
+            )
+        print(f"🔹 {diagnosis['illness']} (Probability: {round(diagnosis['confidence_softmax'] * 100, 2)}%)")
         display_symptom_matching(diagnosis, fact_base["user_answers"])
 
         print(f"\n📌 **ML Confidence Score Adjustments**")
@@ -963,6 +1022,10 @@ def run_diagnosis():
             )
             print(f"👉 {treatment}")
 
+    print("\n🧪 All Illness Probabilities (SoftMax normalized):")
+    for d in final_diagnoses:
+        print(f"🔹 {d['illness']}: {round(d['confidence_softmax'] * 100, 2)}%")
+
     print("\n✅ Diagnosis with full illness details included!")
 
 
@@ -1005,6 +1068,49 @@ def build_structured_output(fact_base, final_diagnoses):
         )
 
     return output
+
+
+from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_score
+
+
+def evaluate_illness_performance(target_illness):
+    """
+    Evaluates the 2x2 confusion matrix and classification metrics
+    for the given illness based on your full labeled dataset.
+    """
+    # Load your true vs predicted results
+    eval_path = "data/true_vs_predicted.csv"
+    if not os.path.exists(eval_path):
+        print("⚠️ Evaluation file not found.")
+        return None
+
+    df_eval = pd.read_csv(eval_path)
+
+    # Binary classification: target illness vs all others
+    y_true = df_eval["Illness"].apply(lambda x: 1 if x == target_illness else 0)
+    y_pred = df_eval["Predicted"].apply(lambda x: 1 if x == target_illness else 0)
+
+    tn, fp, fn, tp = confusion_matrix(y_true, y_pred).ravel()
+    precision = precision_score(y_true, y_pred, zero_division=0)
+    recall = recall_score(y_true, y_pred, zero_division=0)
+    f1 = f1_score(y_true, y_pred, zero_division=0)
+    specificity = tn / (tn + fp) if (tn + fp) != 0 else 0
+
+    return {
+        "illness": target_illness,
+        "confusion_matrix": {
+            "TP": int(tp),
+            "FP": int(fp),
+            "FN": int(fn),
+            "TN": int(tn),
+        },
+        "metrics": {
+            "Precision": round(precision, 4),
+            "Recall": round(recall, 4),
+            "Specificity": round(specificity, 4),
+            "F1 Score": round(f1, 4),
+        },
+    }
 
 
 # 📌 Run the system

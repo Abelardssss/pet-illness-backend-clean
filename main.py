@@ -3,33 +3,52 @@ import numpy as np
 import json
 import pandas as pd
 import os
+from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_score
 
-# 📌 File Paths
+# 📌 File Paths (static ones)
 FACT_BASE_PATH = "data/fact_base.json"
-KNOWLEDGE_BASE_PATH = "data/dog_knowledge_base.json"
 ILLNESS_INFO_PATH = "data/expanded_illness_info_complete.json"
 FOLLOWUP_QUESTIONS_PATH = "data/updated_follow_up_questions_tuned.json"
-DATASET_PATH = "data/latest_augmented.csv"
 BREED_CATEGORY_MAP_PATH = "data/breed_category_mapping.json"
 
+# 📌 Initialize Global Variables Safely
+knowledge_base = []
+illness_info = {}
+symptom_followups = {}
+breed_category_mapping = {}
+boosting_model = None
+adaboost_model = None
+selected_features = []
+df = pd.DataFrame()
+all_symptoms = []
 
-# 📌 Load JSON Files
+# 📌 Load JSON Files Helper
 def load_json(file_path):
     with open(file_path, "r") as file:
         return json.load(file)
 
-
-# 📌 Load Data
-knowledge_base = load_json(KNOWLEDGE_BASE_PATH)["rules"]
+# 📌 Load Static Databases (these are always needed)
 illness_info = load_json(ILLNESS_INFO_PATH)
 symptom_followups = load_json(FOLLOWUP_QUESTIONS_PATH)
 breed_category_mapping = load_json(BREED_CATEGORY_MAP_PATH)
 
-# 📌 Load Machine Learning Models
-boosting_model = joblib.load("model/gradient_model.pkl")
-adaboost_model = joblib.load("model/adaboost_model.pkl")
-selected_features = joblib.load("model/adaboost_selected_features.pkl")
+# 📌 Dynamic Pet Resource Loader
+def load_pet_resources(pet_type):
+    """Load knowledge base, ML models, dataset and features depending on pet type."""
+    if pet_type == "dog":
+        kb = load_json("data/dog_knowledge_base.json")["rules"]
+        boost_model = joblib.load("new model/new_dog_gradient_model.pkl")
+        ada_model = joblib.load("new model/new_dog_adaboost_model.pkl")
+        feats = joblib.load("new model/new_dog_adaboost_selected_features.pkl")
+        dataset = pd.read_csv("data/dog_augmented.csv")
+    else:  # cat
+        kb = load_json("data/cat_knowledge_base.json")["rules"]
+        boost_model = joblib.load("new model/new_cat_gradient_model.pkl")
+        ada_model = joblib.load("new model/new_cat_adaboost_model.pkl")
+        feats = joblib.load("new model/new_cat_adaboost_selected_features.pkl")
+        dataset = pd.read_csv("data/cat_augmented.csv")
 
+    return kb, boost_model, ada_model, feats, dataset
 
 # Load Knowledge Base (Rules)
 def load_knowledge_base():
@@ -43,32 +62,47 @@ def load_illness_info():
         return json.load(illness_file)
 
 
-# 📌 Load Dataset & Features
-df = pd.read_csv(DATASET_PATH)
-all_symptoms = [col for col in df.columns if col not in ["Illness"]]
-
-
-# 📌 Categorize Pet Age
-def categorize_age(age):
-    """Convert numeric age to category."""
+def categorize_age(age, pet_type="dog"):
+    """Convert numeric age to category based on pet type (dog or cat)."""
     try:
-        age = int(age)  # Ensure it's an integer
+        age = float(age)  # Accept integers and floats
     except ValueError:
-        return "Unknown"  # Handle non-integer inputs safely
+        return "Unknown"
 
-    if age <= 1:
-        return "Puppy"
-    elif 1 < age <= 7:
-        return "Adult"
+    pet_type = pet_type.lower().strip()
+
+    if pet_type == "dog":
+        if age < 1:
+            return "Puppy"
+        elif 1 <= age <= 7:
+            return "Adult"
+        else:
+            return "Senior"
+    elif pet_type == "cat":
+        if age < 1:
+            return "Kitten"
+        elif 1 <= age <= 10:
+            return "Adult"
+        else:
+            return "Senior"
     else:
-        return "Senior"
+        return "Unknown"
+
 
 
 # 📌 Get User Input
 def get_user_input():
     """Collect user input for pet details and symptoms."""
-    print("\n🔹 Enter pet owner details:")
-    owner_name = input("➡ Owner's Name: ").strip()
+
+    print("\n🔹 Select your pet type:")
+    pet_type = input("➡ Dog or Cat? ").strip().lower()
+
+    while pet_type not in ["dog", "cat"]:
+        print("❌ Invalid input. Please choose 'dog' or 'cat'.")
+        pet_type = input("➡ Dog or Cat? ").strip().lower()
+
+    print("\n🔹 Enter pet details:")
+    pet_name = input("➡ Pet's Name: ").strip()
 
     print("\n🔹 Enter pet details:")
     age_years = input("➡ Pet Age (in years): ").strip()
@@ -101,7 +135,8 @@ def get_user_input():
             break
 
     return {
-        "owner": owner_name,
+        "pet_type": pet_type,
+        "pet": pet_name,
         "pet_info": {
             "age_years": age_years,
             "age_range": age_range,
@@ -109,8 +144,9 @@ def get_user_input():
             "breed": breed,
         },
         "symptoms": symptoms,
-        "user_answers": user_answers,  # ✅ Ensure `user_answers` is always returned
+        "user_answers": user_answers,
     }
+
 
 
 def parse_duration_range(range_str):
@@ -211,53 +247,50 @@ def adjust_confidence_with_followups(
                         user_subtype = candidate
                 user_subtype_clean = user_subtype if user_subtype else None
 
-                impact_values = symptom_followups.get(symptom_name, {}).get(
-                    "impact", {}
-                )
-                severity_impact = (
-                    impact_values.get(user_severity.lower(), 1.2)
-                    if user_severity
-                    else 1.2
-                )
-                subtype_impact = (
-                    impact_values.get(user_subtype_clean, 1.2)
-                    if user_subtype_clean
-                    else 1.2
-                )
+                # --- Impact Adjustments ---
 
-                if user_duration and expected_duration.lower() != "any":
-                    if duration_overlap(user_duration, expected_duration):
-                        duration_impact = impact_values.get(user_duration.lower(), 1.2)
-                    else:
-                        duration_impact = 0.95
-                else:
-                    duration_impact = 1.2
-
-                kb_match_bonus = 1.0
+                # Severity impact
                 if user_severity and expected_severity.lower() != "any":
-                    kb_match_bonus *= (
-                        1.02
-                        if user_severity.lower() == expected_severity.lower()
-                        else 0.95
-                    )
+                    if user_severity.lower() == expected_severity.lower():
+                        severity_impact = 1.2
+                    else:
+                        severity_impact = 0.9
+                else:
+                    severity_impact = 1.0
 
+                # Duration impact
                 if user_duration and expected_duration.lower() != "any":
                     if duration_overlap(user_duration, expected_duration):
-                        kb_match_bonus *= 1.03
+                        duration_impact = 1.2
                     else:
-                        kb_match_bonus *= 0.95
+                        duration_impact = 0.9
+                else:
+                    duration_impact = 1.0
 
-                if user_subtype_clean and expected_subtypes != ["any"]:
-                    kb_match_bonus *= (
-                        1.08 if user_subtype_clean in expected_subtypes else 0.9
-                    )
+                # Subtype impact (strict smart matching)
+                if expected_subtypes and expected_subtypes != ["any"]:
+                    if user_subtype_clean:
+                        if user_subtype_clean in expected_subtypes:
+                            if len(expected_subtypes) == 1:
+                                subtype_impact = 1.3  # Strict match bonus
+                            else:
+                                subtype_impact = 1.1  # Permissive match bonus
+                        else:
+                            subtype_impact = 0.7  # Hard mismatch penalty
+                    else:
+                        subtype_impact = 0.85  # Missing user subtype slight penalty
+                else:
+                    subtype_impact = 1.0  # No expected subtypes, neutral
 
+                # Apply all impacts for this symptom
                 total_multiplier *= (
-                    severity_impact * subtype_impact * duration_impact * kb_match_bonus
+                    severity_impact * subtype_impact * duration_impact
                 )
+
+    # (Optional) Cap total multiplier between 0.5 and 2.0 for stability
+    total_multiplier = min(max(total_multiplier, 0.5), 2.0)
 
     return round(confidence * total_multiplier, 2)
-
 
 def compute_max_possible_score(illness_name):
     """Computes the maximum theoretical confidence score for an illness using its symptoms."""
@@ -818,6 +851,13 @@ def run_diagnosis():
     """Executes the diagnosis process using Forward Chaining, Boosting, and AdaBoost models."""
 
     fact_base = get_user_input()
+
+    # 📌 Load Pet-Specific Resources
+    global knowledge_base, boosting_model, adaboost_model, selected_features, df, all_symptoms
+    knowledge_base, boosting_model, adaboost_model, selected_features, df = load_pet_resources(fact_base["pet_type"])
+    all_symptoms = [col for col in df.columns if col not in ["Illness"]]
+
+    # 📌 Proceed with Diagnosis
     possible_diagnoses = forward_chaining(fact_base)
     if not possible_diagnoses:
         print("\n❌ No matching illnesses found. Try entering different symptoms.")
@@ -825,17 +865,13 @@ def run_diagnosis():
 
     refined_diagnoses = gradient_boosting_ranking(possible_diagnoses, fact_base)
     final_diagnoses = adaboost_ranking(refined_diagnoses, fact_base)
-    # Step 1: Apply softmax to all results
     final_diagnoses = apply_softmax_to_confidences(final_diagnoses)
 
-    # Step 2: Sort all illnesses by descending probability
     final_diagnoses.sort(key=lambda x: -x["confidence_softmax"])
 
-    # Step 3: Apply visual filtering threshold (e.g., 0.02 = 2%)
-    PROB_THRESHOLD = 0.04
+    # Visual threshold and top-N
+    PROB_THRESHOLD = 0.02
     filtered = [d for d in final_diagnoses if d["confidence_softmax"] >= PROB_THRESHOLD]
-
-    # Step 4: Show top N results only (e.g., top 3 that meet the threshold)
     top_results = filtered[:3]
 
     compare_illnesses(top_results, fact_base)
@@ -856,7 +892,7 @@ def run_diagnosis():
     print("\n🩺 **Final Diagnoses (Forward Chaining + Boosting + AdaBoost):**")
     for diagnosis in top_results:
         # ✅ Show evaluation metrics based on confusion matrix
-        performance = evaluate_illness_performance(diagnosis["illness"])
+        performance = evaluate_illness_performance(diagnosis["illness"], fact_base["pet_type"])
         if performance:
             print("\n📊 **Model Evaluation for this Illness (from full dataset):**")
             print(f"   - Precision: {performance['metrics']['Precision']}")
@@ -958,16 +994,46 @@ def run_diagnosis():
             f"      - **Contagious:** {'Yes' if illness_details.get('contagious', False) else 'No'}\n"
         )
 
-    # ✅ Structured Comparison Output (Only once)
     structured_comparison = build_comparison_output(final_diagnoses, fact_base)
 
-    print("\n🔍 Structured Comparison Output (for frontend):")
-    for factor in structured_comparison.get("factors", []):
-        top_illness = structured_comparison["top_illness"]
-        second_illness = structured_comparison["second_illness"]
-        print(
-            f"| {factor['name']:<26} | {top_illness}: {factor['top']} | {second_illness}: {factor['second']} |"
+    if structured_comparison and "top_illness" in structured_comparison:
+        print("\n🔍 Structured Comparison Output (for frontend):")
+        for factor in structured_comparison.get("factors", []):
+            top_illness = structured_comparison["top_illness"]
+            second_illness = structured_comparison["second_illness"]
+            print(
+                f"| {factor['name']:<26} | {top_illness}: {factor['top']} | {second_illness}: {factor['second']} |"
+            )
+
+        print("\n🧠 Reason Summary:")
+        for reason in structured_comparison.get("reason_summary", {}).get(
+            "why_top_ranked_higher", []
+        ):
+            print(f"✅ {reason}")
+
+        top_illness_data = next(
+            (
+                d
+                for d in final_diagnoses
+                if d["illness"] == structured_comparison["top_illness"]
+            ),
+            None,
         )
+        if top_illness_data:
+            illness_info_data = load_illness_info().get(top_illness_data["illness"], {})
+            severity = illness_info_data.get("severity", "Unknown")
+            treatment = illness_info_data.get(
+                "treatment", "No treatment guidelines provided."
+            )
+            if "severe" in severity.lower():
+                print("\n⚠️ Immediate Action Required:")
+                print(
+                    f"{top_illness_data['illness']} is classified as **{severity.upper()}**."
+                )
+                print(f"👉 {treatment}")
+    else:
+        print("\n⚠️ Not enough illnesses for structured comparison output.")
+
 
     print("\n🧠 Reason Summary:")
     for reason in structured_comparison.get("reason_summary", {}).get(
@@ -1043,28 +1109,45 @@ def build_structured_output(fact_base, final_diagnoses):
 
     return output
 
-
 from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_score
+import os
+import pandas as pd
 
-
-def evaluate_illness_performance(target_illness):
+def evaluate_illness_performance(target_illness, pet_type="dog"):
     """
     Evaluates the 2x2 confusion matrix and classification metrics
-    for the given illness based on your full labeled dataset.
+    for the given illness based on the full labeled dataset.
+    Chooses dog or cat CSV depending on pet type.
     """
-    # Load your true vs predicted results
-    eval_path = "data/true_vs_predicted.csv"
-    if not os.path.exists(eval_path):
-        print("⚠️ Evaluation file not found.")
-        return None
+
+    # ✅ First determine evaluation file based on pet type
+    if pet_type.lower().strip() == "dog":
+        eval_path = "data/dog_true_vs_predicted.csv"
+    else:
+        eval_path = "data/cat_true_vs_predicted.csv"
 
     df_eval = pd.read_csv(eval_path)
+    # Normalize Illness and Predicted columns
+    df_eval["Illness"] = df_eval["Illness"].astype(str).str.strip().str.lower()
+    df_eval["Predicted"] = df_eval["Predicted"].astype(str).str.strip().str.lower()
+
+    # Normalize target illness
+    target_clean = target_illness.strip().lower()
 
     # Binary classification: target illness vs all others
-    y_true = df_eval["Illness"].apply(lambda x: 1 if x == target_illness else 0)
-    y_pred = df_eval["Predicted"].apply(lambda x: 1 if x == target_illness else 0)
+    y_true = df_eval["Illness"].apply(lambda x: 1 if x == target_clean else 0)
+    y_pred = df_eval["Predicted"].apply(lambda x: 1 if x == target_clean else 0)
 
-    tn, fp, fn, tp = confusion_matrix(y_true, y_pred).ravel()
+    cm = confusion_matrix(y_true, y_pred)
+
+    # Handle cases where confusion matrix is 1x1
+    if cm.shape == (2, 2):
+        tn, fp, fn, tp = cm.ravel()
+    elif cm.shape == (1, 1):
+        tn, fp, fn, tp = 0, 0, 0, cm[0, 0]
+    else:
+        tn, fp, fn, tp = 0, 0, 0, 0
+
     precision = precision_score(y_true, y_pred, zero_division=0)
     recall = recall_score(y_true, y_pred, zero_division=0)
     f1 = f1_score(y_true, y_pred, zero_division=0)

@@ -1,302 +1,143 @@
 {
-    "owner": "Ihtlog",
+    "pet_type": "cat",
+    "pet": "ascaasf",
     "pet_info": {
-        "age_years": "1",
+        "age_years": "0.5",
         "age_range": "Puppy",
         "size": "Small",
-        "breed": "Shih tzu"
+        "breed": "Shiht"
     },
     "symptoms": [
         {
-            "name": "abdominal pain"
-        },
-        {
-            "name": "dehydration"
-        },
-        {
-            "name": "depression"
-        },
-        {
-            "name": "diarrhea"
+            "name": "vomiting"
         }
     ],
     "user_answers": {
-        "diarrhea": {
-            "How long has your pet had diarrhea?": "7 days",
-            "What type of diarrhea is it? (Watery or Bloody)": "bloody"
+        "vomiting": {
+            "How long has your pet had vomiting?": "2",
+            "What type of vomiting is it? (Bloody, Foamy, Yellow, or Green)": "foamy"
         }
     },
     "possible_diagnosis": [
         {
-            "illness": "Canine Parvovirus",
+            "illness": "Kidney Failure in Cats",
             "matched_symptoms": [
-                "abdominal pain",
-                "dehydration",
-                "depression",
-                "diarrhea"
-            ],
-            "confidence_fc": 0.38,
-            "confidence_gb": 1.0,
-            "confidence_ab": 1.0,
-            "confidence_softmax": 0.097
-        },
-        {
-            "illness": "Canine Enteric Coronavirus",
-            "matched_symptoms": [
-                "abdominal pain",
-                "diarrhea"
-            ],
-            "confidence_fc": 0.36,
-            "confidence_gb": 0.01,
-            "confidence_ab": 0.11,
-            "confidence_softmax": 0.0398
-        },
-        {
-            "illness": "Canine Minute Virus",
-            "matched_symptoms": [
-                "abdominal pain",
-                "diarrhea",
-                "dehydration"
-            ],
-            "confidence_fc": 0.26,
-            "confidence_gb": 0.03,
-            "confidence_ab": 0.1,
-            "confidence_softmax": 0.0394
-        },
-        {
-            "illness": "Addison's Disease",
-            "matched_symptoms": [
-                "dehydration",
-                "depression",
-                "diarrhea"
-            ],
-            "confidence_fc": 0.33,
-            "confidence_gb": 0.01,
-            "confidence_ab": 0.1,
-            "confidence_softmax": 0.0394
-        },
-        {
-            "illness": "Coccidia in Dogs",
-            "matched_symptoms": [
-                "dehydration",
-                "diarrhea"
-            ],
-            "confidence_fc": 0.3,
-            "confidence_gb": 0.01,
-            "confidence_ab": 0.09,
-            "confidence_softmax": 0.039
-        },
-        {
-            "illness": "Clostridial Infections",
-            "matched_symptoms": [
-                "abdominal pain",
-                "diarrhea"
-            ],
-            "confidence_fc": 0.27,
-            "confidence_gb": 0.0,
-            "confidence_ab": 0.08,
-            "confidence_softmax": 0.0386
-        },
-        {
-            "illness": "Campylobacteriosis (Bacterial Infection)",
-            "matched_symptoms": [
-                "abdominal pain",
-                "diarrhea"
-            ],
-            "confidence_fc": 0.27,
-            "confidence_gb": 0.0,
-            "confidence_ab": 0.08,
-            "confidence_softmax": 0.0386
-        },
-        {
-            "illness": "Rocky Mountain Spotted Fever",
-            "matched_symptoms": [
-                "abdominal pain",
-                "depression",
-                "diarrhea"
+                "vomiting"
             ],
             "confidence_fc": 0.21,
-            "confidence_gb": 0.0,
-            "confidence_ab": 0.07,
-            "confidence_softmax": 0.0383
+            "confidence_gb": 0.07,
+            "confidence_ab": 0.06,
+            "confidence_softmax": 0.0852
         },
         {
-            "illness": "Ameba Infection",
+            "illness": "Ameba Infection in Cats",
             "matched_symptoms": [
-                "diarrhea"
+                "vomiting"
             ],
-            "confidence_fc": 0.23,
-            "confidence_gb": 0.0,
-            "confidence_ab": 0.07,
-            "confidence_softmax": 0.0383
+            "confidence_fc": 0.2,
+            "confidence_gb": 0.01,
+            "confidence_ab": 0.04,
+            "confidence_softmax": 0.0835
         },
         {
-            "illness": "Infectious Canine Hepatitis",
+            "illness": "Bacterial Infection (Campylobacteriosis) in Cats",
             "matched_symptoms": [
-                "abdominal pain",
-                "dehydration",
-                "depression",
-                "diarrhea"
+                "vomiting"
             ],
             "confidence_fc": 0.18,
-            "confidence_gb": 0.0,
-            "confidence_ab": 0.06,
-            "confidence_softmax": 0.0379
+            "confidence_gb": 0.06,
+            "confidence_ab": 0.04,
+            "confidence_softmax": 0.0835
         },
         {
-            "illness": "Leptospirosis",
+            "illness": "Bacterial Infection (Leptospirosis) in Cats",
             "matched_symptoms": [
-                "abdominal pain",
-                "dehydration",
-                "diarrhea"
+                "vomiting"
+            ],
+            "confidence_fc": 0.15,
+            "confidence_gb": 0.02,
+            "confidence_ab": 0.04,
+            "confidence_softmax": 0.0835
+        },
+        {
+            "illness": "Chronic Renal Failure in Cats",
+            "matched_symptoms": [
+                "vomiting"
             ],
             "confidence_fc": 0.17,
-            "confidence_gb": 0.0,
-            "confidence_ab": 0.06,
-            "confidence_softmax": 0.0379
+            "confidence_gb": 0.04,
+            "confidence_ab": 0.04,
+            "confidence_softmax": 0.0835
         },
         {
-            "illness": "Tapeworms",
+            "illness": "Heartworm Disease in Cats",
             "matched_symptoms": [
-                "diarrhea"
+                "vomiting"
             ],
-            "confidence_fc": 0.18,
-            "confidence_gb": 0.0,
-            "confidence_ab": 0.06,
-            "confidence_softmax": 0.0379
+            "confidence_fc": 0.19,
+            "confidence_gb": 0.01,
+            "confidence_ab": 0.04,
+            "confidence_softmax": 0.0835
         },
         {
-            "illness": "Cryptosporidium in Dogs",
+            "illness": "Kidney Disease in Cats",
             "matched_symptoms": [
-                "diarrhea"
+                "vomiting"
             ],
-            "confidence_fc": 0.23,
-            "confidence_gb": 0.0,
-            "confidence_ab": 0.06,
-            "confidence_softmax": 0.0379
+            "confidence_fc": 0.17,
+            "confidence_gb": 0.04,
+            "confidence_ab": 0.04,
+            "confidence_softmax": 0.0835
         },
         {
-            "illness": "Canine Distemper",
+            "illness": "Kidney Infections in Cats",
             "matched_symptoms": [
-                "dehydration",
-                "depression",
-                "diarrhea"
+                "vomiting"
             ],
-            "confidence_fc": 0.18,
-            "confidence_gb": 0.0,
-            "confidence_ab": 0.05,
-            "confidence_softmax": 0.0375
+            "confidence_fc": 0.17,
+            "confidence_gb": 0.02,
+            "confidence_ab": 0.04,
+            "confidence_softmax": 0.0835
         },
         {
-            "illness": "Canine Herpesvirus",
+            "illness": "Coccidia in Cats",
             "matched_symptoms": [
-                "abdominal pain",
-                "diarrhea"
+                "vomiting"
             ],
             "confidence_fc": 0.13,
-            "confidence_gb": 0.0,
-            "confidence_ab": 0.04,
-            "confidence_softmax": 0.0371
-        },
-        {
-            "illness": "Roundworms",
-            "matched_symptoms": [
-                "diarrhea"
-            ],
-            "confidence_fc": 0.15,
-            "confidence_gb": 0.0,
-            "confidence_ab": 0.04,
-            "confidence_softmax": 0.0371
-        },
-        {
-            "illness": "Chronic Renal Failure",
-            "matched_symptoms": [
-                "diarrhea"
-            ],
-            "confidence_fc": 0.15,
-            "confidence_gb": 0.0,
-            "confidence_ab": 0.04,
-            "confidence_softmax": 0.0371
-        },
-        {
-            "illness": "Hookworms",
-            "matched_symptoms": [
-                "diarrhea"
-            ],
-            "confidence_fc": 0.09,
-            "confidence_gb": 0.0,
+            "confidence_gb": 0.01,
             "confidence_ab": 0.03,
-            "confidence_softmax": 0.0368
+            "confidence_softmax": 0.0826
         },
         {
-            "illness": "Toxoplasmosis in Dogs",
+            "illness": "Feline Distemper (Panleukopenia)",
             "matched_symptoms": [
-                "diarrhea"
+                "vomiting"
             ],
-            "confidence_fc": 0.08,
-            "confidence_gb": 0.0,
+            "confidence_fc": 0.14,
+            "confidence_gb": 0.02,
             "confidence_ab": 0.03,
-            "confidence_softmax": 0.0368
+            "confidence_softmax": 0.0826
         },
         {
-            "illness": "Lyme Disease",
+            "illness": "Roundworms in Cats",
             "matched_symptoms": [
-                "depression"
+                "vomiting"
             ],
-            "confidence_fc": 0.11,
-            "confidence_gb": 0.0,
-            "confidence_ab": 0.02,
-            "confidence_softmax": 0.0364
+            "confidence_fc": 0.16,
+            "confidence_gb": 0.04,
+            "confidence_ab": 0.03,
+            "confidence_softmax": 0.0826
         },
         {
-            "illness": "Ehrlichiosis",
+            "illness": "Tapeworms in Cats",
             "matched_symptoms": [
-                "depression"
+                "vomiting"
             ],
-            "confidence_fc": 0.06,
-            "confidence_gb": 0.0,
-            "confidence_ab": 0.02,
-            "confidence_softmax": 0.0364
-        },
-        {
-            "illness": "Craniomandibular Osteopathy",
-            "matched_symptoms": [
-                "dehydration"
-            ],
-            "confidence_fc": 0.06,
-            "confidence_gb": 0.0,
-            "confidence_ab": 0.02,
-            "confidence_softmax": 0.0364
-        },
-        {
-            "illness": "Kidney Stones",
-            "matched_symptoms": [
-                "abdominal pain"
-            ],
-            "confidence_fc": 0.09,
-            "confidence_gb": 0.0,
-            "confidence_ab": 0.02,
-            "confidence_softmax": 0.0364
-        },
-        {
-            "illness": "Diabetes Mellitus",
-            "matched_symptoms": [
-                "dehydration"
-            ],
-            "confidence_fc": 0.12,
-            "confidence_gb": 0.0,
-            "confidence_ab": 0.01,
-            "confidence_softmax": 0.036
-        },
-        {
-            "illness": "Chronic Kidney Disease (CKD)",
-            "matched_symptoms": [
-                "diarrhea"
-            ],
-            "confidence_fc": 0.08,
-            "confidence_gb": 0.0,
-            "confidence_ab": 0.01,
-            "confidence_softmax": 0.036
+            "confidence_fc": 0.16,
+            "confidence_gb": 0.02,
+            "confidence_ab": 0.03,
+            "confidence_softmax": 0.0826
         }
     ]
 }

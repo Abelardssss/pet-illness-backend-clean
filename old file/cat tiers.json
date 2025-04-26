@@ -1,0 +1,284 @@
+{
+    "illnesses": {
+        "Ameba Infection in Cats": {
+            "Tier 0": ["Diarrhea"],
+            "Tier 1": ["Vomiting", "Dehydration", "Lethargy"],
+            "Tier 2": ["Weight loss"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Anaerobic Bacterial Infections in Cats": {
+            "Tier 0": ["Swelling"],
+            "Tier 1": ["Skin wounds", "Foul odor from wound", "Pus or discharge", "Pain when touched", "Fever", "Lethargy"],
+            "Tier 2": [],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Arthritis in Cats": {
+            "Tier 0": ["Stiffness"],
+            "Tier 1": ["Limping", "Difficulty jumping", "Less grooming", "Irritability"],
+            "Tier 2": [],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Babesiosis in Cats": {
+            "Tier 0": ["Pale gums"],
+            "Tier 1": ["Fever", "Lethargy", "Weakness"],
+            "Tier 2": ["Loss of appetite"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Bacterial Infection (Actinomycosis) in Cats": {
+            "Tier 0": ["Swelling"],
+            "Tier 1": ["Skin lumps", "Draining wounds", "Bad Odor", "Pain", "Lethargy"],
+            "Tier 2": [],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Bacterial Infection (B. bronchiseptica) in Cats": {
+            "Tier 0": ["Sneezing"],
+            "Tier 1": ["Coughing", "Nasal discharge", "Eye discharge", "Fever", "Loss of appetite"],
+            "Tier 2": [],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Bacterial Infection (Campylobacteriosis) in Cats": {
+            "Tier 0": ["Diarrhea"],
+            "Tier 1": ["Mucus in stool", "Vomiting"],
+            "Tier 2": ["Weight loss", "Lethargy"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Bacterial Infection (Leptospirosis) in Cats": {
+            "Tier 0": ["Jaundice"],
+            "Tier 1": ["Fever", "Vomiting", "Diarrhea"],
+            "Tier 2": ["Weakness", "Lethargy"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Bacterial Infection (Streptococcus) in Cats": {
+            "Tier 0": ["Fever"],
+            "Tier 1": ["Lethargy", "Swollen joints"],
+            "Tier 2": ["Coughing", "Nasal discharge"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Calicivirus in Cats": {
+            "Tier 0": ["Sneezing", "Mouth ulcers"],
+            "Tier 1": ["Nasal discharge", "Eye discharge", "Drooling", "Fever"],
+            "Tier 2": ["Lethargy", "Limping", "Loss of appetite"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Cat Tooth Abscess": {
+            "Tier 0": ["Swelling face"],
+            "Tier 1": ["Drooling", "Bad Breath", "Painful chewing"],
+            "Tier 2": [],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Cerebellar Hypoplasia in Cats": {
+            "Tier 0": ["Wobbling"],
+            "Tier 1": ["Head tremors", "Uncoordinated movement"],
+            "Tier 2": ["Falling Over"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Chronic Renal Failure in Cats": {
+            "Tier 0": ["Increased thirst", "Frequent urination"],
+            "Tier 1": ["Weight loss", "Vomiting"],
+            "Tier 2": ["Poor coat"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Coccidia in Cats": {
+            "Tier 0": ["Diarrhea"],
+            "Tier 1": ["Dehydration", "Weight loss"],
+            "Tier 2": ["Vomiting", "Lethargy"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Congestive Heart Failure in Cats": {
+            "Tier 0": ["Breathing difficulty"],
+            "Tier 1": ["Lethargy", "Coughing", "Swollen belly"],
+            "Tier 2": ["Loss of appetite"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Demodectic Mange in Cats": {
+            "Tier 0": ["Hair loss"],
+            "Tier 1": ["Scabs", "Itching"],
+            "Tier 2": ["Skin redness", "Thickened skin"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Dental Issues in Cats": {
+            "Tier 0": ["Bad Breath"],
+            "Tier 1": ["Drooling", "Difficulty eating", "Swollen gums"],
+            "Tier 2": ["Pawing at mouth"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Diabetes in Cats": {
+            "Tier 0": ["Increased thirst", "Frequent urination"],
+            "Tier 1": ["Weight loss", "Increased appetite"],
+            "Tier 2": ["Weakness"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Ehrlichiosis in Cats": {
+            "Tier 0": ["Fever"],
+            "Tier 1": ["Lethargy", "Weight loss"],
+            "Tier 2": ["Swollen lymph nodes", "Nosebleeds"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Epilepsy in Cats": {
+            "Tier 0": ["Seizures"],
+            "Tier 1": ["Stiffness", "Collapse"],
+            "Tier 2": ["Drooling", "Confusion"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Feline Distemper (Panleukopenia)": {
+            "Tier 0": ["Vomiting", "Diarrhea"],
+            "Tier 1": ["Lethargy", "Dehydration", "Loss of appetite", "Fever"],
+            "Tier 2": ["Weight loss", "Unsteadiness"],
+            "Tier 3": ["Hiding"],
+            "Tier 4": []
+        },
+        "Feline Herpesvirus 1 (FHV-1) Infection": {
+            "Tier 0": ["Sneezing"],
+            "Tier 1": ["Nasal discharge", "Eye discharge", "Fever"],
+            "Tier 2": ["Squinting", "Eye redness", "Loss of appetite", "Lethargy"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Feline Hypertrophic Cardiomyopathy (HCM) in Cats": {
+            "Tier 0": ["Rapid breathing"],
+            "Tier 1": ["Panting", "Lethargy", "Weakness"],
+            "Tier 2": ["Sudden collapse"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Giardia in Cats": {
+            "Tier 0": ["Diarrhea"],
+            "Tier 1": ["Gas", "Weight loss"],
+            "Tier 2": ["Soft stool", "Lethargy"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Gingivitis in Cats": {
+            "Tier 0": ["Red gums"],
+            "Tier 1": ["Swollen gums", "Bad Breath", "Drooling"],
+            "Tier 2": ["Bleeding gums"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Heartworm Disease in Cats": {
+            "Tier 0": ["Coughing"],
+            "Tier 1": ["Breathing difficulty", "Vomiting"],
+            "Tier 2": ["Lethargy", "Weight loss"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Hip Dysplasia in Cats": {
+            "Tier 0": ["Limping"],
+            "Tier 1": ["Difficulty moving", "Stiffness", "Pain when touched"],
+            "Tier 2": [],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Hookworms in Cats": {
+            "Tier 0": ["Pale gums"],
+            "Tier 1": ["Diarrhea", "Weight loss"],
+            "Tier 2": ["Poor coat", "Lethargy"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Kidney Disease in Cats": {
+            "Tier 0": ["Increased thirst", "Frequent urination"],
+            "Tier 1": ["Vomiting", "Weight loss"],
+            "Tier 2": ["Lethargy"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Kidney Failure in Cats": {
+            "Tier 0": ["Vomiting", "Dehydration"],
+            "Tier 1": ["Bad Breath", "Weight loss"],
+            "Tier 2": ["Lethargy"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Kidney Infections in Cats": {
+            "Tier 0": ["Fever"],
+            "Tier 1": ["Vomiting", "Lethargy", "Abdominal Pain"],
+            "Tier 2": ["Frequent urination"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Kidney Stones in Cats": {
+            "Tier 0": ["Blood in urine"],
+            "Tier 1": ["Painful urination", "Frequent urination"],
+            "Tier 2": ["Licking genitals"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Luxating Patellas in Cats": {
+            "Tier 0": ["Skipping Gait"],
+            "Tier 1": ["Limping"],
+            "Tier 2": ["Sudden leg stretching", "Reluctance to move"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Periodontal Disease in Cats": {
+            "Tier 0": ["Bad Breath"],
+            "Tier 1": ["Loose teeth", "Gum recession"],
+            "Tier 2": ["Bleeding gums", "Drooling"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Rabies in Cats": {
+            "Tier 0": ["Aggression"],
+            "Tier 1": ["Excessive drooling", "Disorientation", "Sudden behavior changes", "Difficulty swallowing"],
+            "Tier 2": ["Unsteadiness"],
+            "Tier 3": ["Seizures", "Paralysis"],
+            "Tier 4": []
+        },
+        "Roundworms in Cats": {
+            "Tier 0": ["Worms in stool"],
+            "Tier 1": ["Bloating", "Vomiting", "Diarrhea"],
+            "Tier 2": ["Dull coat"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Stomatitis in Cats": {
+            "Tier 0": ["Mouth pain"],
+            "Tier 1": ["Drooling", "Difficulty eating"],
+            "Tier 2": ["Bad Breath", "Red gums"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Tapeworms in Cats": {
+            "Tier 0": ["Segments in stool"],
+            "Tier 1": ["Scooting", "Vomiting", "Weight loss"],
+            "Tier 2": ["Increased appetite"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Tooth Resorption in Cats": {
+            "Tier 0": ["Chattering jaw"],
+            "Tier 1": ["Dropping food", "Drooling"],
+            "Tier 2": ["Pawing at mouth"],
+            "Tier 3": [],
+            "Tier 4": []
+        },
+        "Toxoplasmosis in Cats": {
+            "Tier 0": ["Fever"],
+            "Tier 1": ["Lethargy", "Difficulty breathing"],
+            "Tier 2": ["Loss of appetite", "Eye discharge"],
+            "Tier 3": [],
+            "Tier 4": []
+        }
+    }
+}
